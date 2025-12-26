@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifikasi - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/3f57075609.js" crossorigin="anonymous"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#F8F9FA' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 py-4 flex items-center gap-4">
+      <a href="index.html" class="text-dark hover:text-primary"><img src="img/LOGO.svg" class="h-10"></a>
+      <!-- Logo Desktop -->
+      <a href="index.html" class="hidden lg:flex items-center gap-2 text-primary font-bold text-xl"><img
+          src="img/Seduhan.svg" alt=""></a>
+
+      <h1 class="text-lg font-bold flex-1 lg:hidden">Notifikasi</h1>
+
+      <!-- Desktop Search (Cosmetic) -->
+      <div class="hidden lg:block flex-1 max-w-xl mx-auto relative">
+        <input type="text" placeholder="Cari..." class="w-full bg-gray-100 pl-4 py-2 rounded-lg text-sm">
+      </div>
+
+      <button class="text-sm text-primary font-medium lg:hidden">Tandai Dibaca</button>
+
+      <!-- Desktop Profile Icon -->
+      <a href="profil.html" class="hidden lg:block w-8 h-8 rounded-full overflow-hidden border border-gray-200"><img
+          src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff" class="w-full h-full"></a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (Desktop Only) -->
+  <div class="hidden lg:block bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-10 py-3">
+      <nav class="flex text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="index.html" class="hover:text-primary transition-colors">Beranda</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <span class="text-primary font-medium ml-3">Notifikasi</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-10 py-6 lg:py-8 flex gap-8">
+
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-2">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+        <div class="p-4 border-b border-gray-50 flex items-center gap-3">
+          <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+            class="w-10 h-10 rounded-full">
+          <div>
+            <h4 class="font-bold text-sm">Belva Mischah</h4>
+            <p class="text-xs text-gray-500">Member Gold</p>
+          </div>
+        </div>
+        <nav class="p-2">
+          <a href="profil.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-user w-5 text-center"></i> Akun Saya
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Alamat
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-credit-card w-5 text-center"></i> Pembayaran
+          </a>
+          <a href="notifikasi.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-primary bg-primary/5 rounded-lg transition-colors">
+            <i class="fa-solid fa-bell w-5 text-center"></i> Notifikasi
+            <span class="ml-auto w-2 h-2 rounded-full bg-accent"></span>
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT (Notification List) -->
+    <div class="flex-1 max-w-3xl">
+      <div class="flex items-center justify-between mb-4 lg:mb-6">
+        <h2 class="text-xl font-bold hidden lg:block">Daftar Notifikasi</h2>
+        <button class="hidden lg:block text-sm text-primary font-medium hover:underline">Tandai Semua Dibaca</button>
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="flex gap-2 overflow-x-auto hide-scroll pb-2 mb-4">
+        <button
+          class="px-4 py-1.5 rounded-full bg-primary text-white text-xs font-medium border border-primary hover:opacity-90">Semua</button>
+        <button
+          class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-xs font-medium border border-gray-200 hover:border-primary hover:text-primary">Transaksi</button>
+        <button
+          class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-xs font-medium border border-gray-200 hover:border-primary hover:text-primary">Promo</button>
+        <button
+          class="px-4 py-1.5 rounded-full bg-white text-gray-600 text-xs font-medium border border-gray-200 hover:border-primary hover:text-primary">Info</button>
+      </div>
+
+      <div class="space-y-3">
+        <!-- Notif Item (Unread) -->
+        <div
+          class="bg-orange-50/50 p-4 rounded-xl border border-orange-100 flex gap-4 items-start relative hover:bg-white transition-colors cursor-pointer group">
+          <div class="w-2 h-2 rounded-full bg-accent absolute top-4 right-4"></div>
+          <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bolt text-lg"></i>
+          </div>
+          <div>
+            <div class="flex justify-between pr-4 mb-1">
+              <h4 class="font-bold text-sm text-dark">Flash Sale Dimulai! ⚡</h4>
+              <span class="text-[10px] text-gray-400 font-normal">Baru Saja</span>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed">Dapatkan diskon hingga 50% untuk peralatan seduh V60 dan
+              Aeropress. Stok terbatas, serbu sekarang!</p>
+          </div>
+        </div>
+
+        <!-- Notif Item (Unread) -->
+        <div
+          class="bg-white p-4 rounded-xl border border-gray-100 flex gap-4 items-start relative hover:shadow-md transition-all cursor-pointer">
+          <div class="w-2 h-2 rounded-full bg-accent absolute top-4 right-4"></div>
+          <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-box text-lg"></i>
+          </div>
+          <div>
+            <div class="flex justify-between pr-4 mb-1">
+              <h4 class="font-bold text-sm text-dark">Paket Sedang Dikemas 📦</h4>
+              <span class="text-[10px] text-gray-400 font-normal">2 Jam Lalu</span>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed">Pesanan <span
+                class="font-bold text-dark">INV/2025/SDH/9921</span> sedang disiapkan oleh seller. Mohon tunggu update
+              resi.</p>
+          </div>
+        </div>
+
+        <!-- Notif Item (Read) -->
+        <div
+          class="bg-white p-4 rounded-xl border border-gray-100 flex gap-4 items-start hover:shadow-md transition-all cursor-pointer opacity-70 hover:opacity-100">
+          <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-ticket text-lg"></i>
+          </div>
+          <div>
+            <div class="flex justify-between pr-4 mb-1">
+              <h4 class="font-bold text-sm text-dark">Voucher Kamu Siap!</h4>
+              <span class="text-[10px] text-gray-400 font-normal">Kemarin</span>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed">Kamu mendapatkan voucher ongkir Rp 10.000 tanpa minimum
+              pembelian. Cek halaman voucher.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
+      <i class="fa-regular fa-house text-xl"></i><span class="text-[10px]">Beranda</span>
+    </a>
+    <a href="kategori.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
+      <i class="fa-regular fa-clone text-xl"></i><span class="text-[10px]">Kategori</span>
+    </a>
+    <div class="relative -top-8"><a href="keranjang.html"><button
+          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white"><i
+            class="fa-solid fa-cart-shopping"></i></button></a></div>
+    <a href="notifikasi.html" class="flex flex-col items-center gap-1 text-primary hover:text-primary">
+      <i class="fa-solid fa-bell text-xl"></i><span class="text-[10px]">Notifikasi</span>
+    </a>
+    <a href="profil.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
+      <i class="fa-regular fa-user text-xl"></i><span class="text-[10px]">Profil</span>
+    </a>
+  </nav>
+
+</body>
+
+</html>

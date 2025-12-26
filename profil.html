@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=home" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/3f57075609.js" crossorigin="anonymous"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#F8F9FA' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    .profile-gradient {
+      background: linear-gradient(135deg, #6F4E37 0%, #D4A373 100%);
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR (DESKTOP) -->
+  <header class="hidden lg:block sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-10 py-4 flex items-center gap-4">
+      <a href="index.html"><img src="img/LOGO.svg" class="h-10"></a>
+      <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-xl"><img src="img/Seduhan.svg"
+          alt=""></a>
+      <div class="flex-1 max-w-xl mx-auto relative"><input type="text" placeholder="Cari..."
+          class="w-full bg-gray-100 pl-4 py-2 rounded-lg text-sm"></div>
+      <a href="profil.html" class="w-8 h-8 rounded-full overflow-hidden border border-gray-200"><img
+          src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff" class="w-full h-full"></a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-0 lg:px-10 py-0 lg:py-8 flex gap-8">
+
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-2 h-fit sticky top-24">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+        <div class="p-4 border-b border-gray-50 flex items-center gap-3">
+          <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+            class="w-10 h-10 rounded-full">
+          <div>
+            <h4 class="font-bold text-sm">Belva Mischah</h4>
+            <p class="text-xs text-gray-500">Member Gold</p>
+          </div>
+        </div>
+        <nav class="p-2">
+          <a href="seduhan_profile.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-primary bg-primary/5 rounded-lg transition-colors">
+            <i class="fa-regular fa-user w-5 text-center"></i> Akun Saya
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Alamat
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-credit-card w-5 text-center"></i> Pembayaran
+          </a>
+          <a href="notifikasi.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-bell w-5 text-center"></i> Notifikasi
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+          </a>
+        </nav>
+      </div>
+      <div class="p-2">
+        <button
+          class="w-full flex items-center justify-center gap-2 border border-red-200 text-red-500 font-bold py-2.5 rounded-lg text-sm hover:bg-red-50 transition-colors bg-white">
+          <i class="fa-solid fa-right-from-bracket"></i> Keluar
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="flex-1 w-full lg:w-3/4">
+
+      <!-- HEADER PROFILE (Responsive Adaptation) -->
+      <div class="relative mb-6">
+        <!-- Banner Background -->
+        <div class="h-32 lg:h-48 profile-gradient lg:rounded-2xl shadow-lg"></div>
+
+        <!-- Profile Info Card -->
+        <div class="px-4 lg:px-8 relative -top-12">
+          <div
+            class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 lg:p-6 flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+            <div
+              class="w-20 h-20 lg:w-28 lg:h-28 rounded-full border-4 border-white shadow-md overflow-hidden relative">
+              <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff&size=128"
+                class="w-full h-full object-cover">
+              <div
+                class="absolute bottom-2 right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-primary cursor-pointer border border-gray-200">
+                <i class="fa-solid fa-camera text-[10px]"></i>
+              </div>
+            </div>
+            <div class="flex-1 mt-2 lg:mt-4">
+              <h2 class="font-bold text-lg lg:text-2xl text-dark">Belva Mischah</h2>
+              <p class="text-sm text-gray-500 mb-3">belva.mischah@gmail.com</p>
+              <div class="flex items-center justify-center md:justify-start gap-2">
+                <span
+                  class="bg-primary/10 text-primary text-[10px] font-bold px-3 py-1 rounded-full border border-primary/20">Member
+                  Gold</span>
+                <span
+                  class="bg-yellow-50 text-yellow-600 text-[10px] font-bold px-3 py-1 rounded-full border border-yellow-100"><i
+                    class="fa-solid fa-coins text-yellow-500 mr-1"></i> 2.500 Poin</span>
+              </div>
+            </div>
+            <button
+              class="text-primary border border-primary px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-all mt-2 lg:mt-4"><i
+                class="fa-solid fa-pen-to-square mr-1"></i> Edit Profil</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDER STATUS -->
+      <div class="px-4 lg:px-0 -mt-6 lg:-mt-0 mb-6">
+        <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-dark">Pesanan Saya</h3>
+            <a href="#" class="text-xs text-primary font-medium hover:underline">Riwayat Pesanan ></a>
+          </div>
+          <div class="grid grid-cols-5 gap-2 text-center">
+            <a href="#" class="flex flex-col items-center gap-2 group">
+              <div
+                class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors relative">
+                <i class="fa-solid fa-wallet text-lg lg:text-xl"></i>
+                <span
+                  class="absolute -top-1 -right-1 w-4 h-4 bg-accent text-white text-[10px] rounded-full flex items-center justify-center">1</span>
+              </div>
+              <span class="text-[10px] lg:text-xs text-gray-600 font-medium">Belum Bayar</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 group">
+              <div
+                class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                <i class="fa-solid fa-box-open text-lg lg:text-xl"></i>
+              </div>
+              <span class="text-[10px] lg:text-xs text-gray-600 font-medium">Dikemas</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 group">
+              <div
+                class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors relative">
+                <i class="fa-solid fa-truck-fast text-lg lg:text-xl"></i>
+                <span
+                  class="absolute -top-1 -right-1 w-4 h-4 bg-accent text-white text-[10px] rounded-full flex items-center justify-center">2</span>
+              </div>
+              <span class="text-[10px] lg:text-xs text-gray-600 font-medium">Dikirim</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 group">
+              <div
+                class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                <i class="fa-solid fa-clipboard-check text-lg lg:text-xl"></i>
+              </div>
+              <span class="text-[10px] lg:text-xs text-gray-600 font-medium">Selesai</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 group">
+              <div
+                class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                <i class="fa-solid fa-star text-lg lg:text-xl"></i>
+              </div>
+              <span class="text-[10px] lg:text-xs text-gray-600 font-medium">Beri Ulasan</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS MENU (MOBILE ONLY - DESKTOP USES SIDEBAR) -->
+      <div class="lg:hidden px-4 mb-6 grid grid-cols-1 gap-4">
+        <!-- Account Settings -->
+        <div class="bg-white rounded-xl border border-gray-100 p-2 shadow-sm">
+          <h4 class="font-bold text-sm px-4 py-2 text-gray-400 uppercase tracking-wider">Akun</h4>
+          <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors group">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-map-location-dot text-primary w-6"></i>
+              <span class="text-sm font-medium text-dark">Daftar Alamat</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:text-primary"></i>
+          </a>
+          <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors group">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-credit-card text-primary w-6"></i>
+              <span class="text-sm font-medium text-dark">Metode Pembayaran</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:text-primary"></i>
+          </a>
+          <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors group">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-heart text-primary w-6"></i>
+              <span class="text-sm font-medium text-dark">Wishlist / Disukai</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:text-primary"></i>
+          </a>
+        </div>
+
+        <!-- General Settings -->
+        <div class="bg-white rounded-xl border border-gray-100 p-2 shadow-sm h-fit">
+          <h4 class="font-bold text-sm px-4 py-2 text-gray-400 uppercase tracking-wider">Umum</h4>
+          <a href="seduhan_notification.html"
+            class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors group">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-bell text-gray-600 w-6"></i>
+              <span class="text-sm font-medium text-dark">Pengaturan Notifikasi</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:text-primary"></i>
+          </a>
+          <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg transition-colors group">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-headset text-gray-600 w-6"></i>
+              <span class="text-sm font-medium text-dark">Pusat Bantuan</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-gray-300 text-xs group-hover:text-primary"></i>
+          </a>
+          <div class="p-2 mt-2">
+            <button
+              class="w-full border border-red-200 text-red-500 font-bold py-2.5 rounded-lg text-sm hover:bg-red-50 transition-colors">Keluar
+              Akun</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
+      <i class="fa-regular fa-house text-xl"></i><span class="text-[10px]">Beranda</span>
+
+    </a>
+    <a href="kategori.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
+      <i class="fa-regular fa-clone text-xl"></i><span class="text-[10px]">Kategori</span>
+    </a>
+    <div class="relative -top-8"><a href="keranjang.html"><button
+          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white"><i
+            class="fa-solid fa-cart-shopping"></i></a></button></div>
+    <a href="notifikasi.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
+      <i class="fa-regular fa-bell text-xl"></i><span class="text-[10px]">Notifikasi</span>
+    </a>
+    <a href="profil.html" class="flex flex-col items-center gap-1 text-primary">
+      <i class="fa-regular fa-user text-xl font-bold"></i><span class="text-[10px] font-medium">Profil</span>
+    </a>
+  </nav>
+
+</body>
+
+</html>

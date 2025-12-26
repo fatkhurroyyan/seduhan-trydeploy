@@ -1,0 +1,33 @@
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tap-effect:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+/* Standard Scrollbar for Desktop */
+@media (min-width: 1024px) {
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: #D4A373;
+    border-radius: 5px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: #6F4E37;
+  }
+}
