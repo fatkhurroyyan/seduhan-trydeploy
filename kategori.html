@@ -154,97 +154,972 @@
       <!-- Product Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="product-grid">
 
-        <!-- Item 1: BIJI KOPI -->
+        <!-- PRODUK 1 (Lengkap: Wishlist, Lokasi, Harga Coret, Button Keranjang Bawah) -->
         <div
-          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative fade-in"
-          data-category="teh">
-          <div class="relative h-40 lg:h-48 bg-gray-100 overflow-hidden">
-            <img src="img/produk/Picture10.jpg"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span
-              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded">Baru</span>
-          </div>
-          <div class="p-3">
-            <div class="text-[10px] text-gray-400 uppercase">Biji Kopi</div>
-            <h4 class="font-medium text-sm lg:text-base line-clamp-2 mb-1 group-hover:text-primary">Arabika Gayo Wine
-              200g</h4>
-            <span class="font-bold text-primary">Rp 65.000</span>
-            <button
-              class="w-full mt-2 py-1.5 rounded-lg border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors">Keranjang</button>
-          </div>
-        </div>
-
-        <!-- Item 2: MINUMAN -->
-        <div
-          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative fade-in"
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
           data-category="kopi">
-          <div class="relative h-40 lg:h-48 bg-gray-100 overflow-hidden">
-            <img src="img/produk/Picture12.jpg"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-3">
-            <div class="text-[10px] text-gray-400 uppercase">Minuman</div>
-            <h4 class="font-medium text-sm lg:text-base line-clamp-2 mb-1 group-hover:text-primary">Kopi Susu Gula Aren
-              1L</h4>
-            <span class="font-bold text-primary">Rp 85.000</span>
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture1.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-white/90 backdrop-blur text-dark text-[10px] font-bold px-2 py-1 rounded shadow-sm">Terlaris</span>
+
+            <!-- WISHLIST BUTTON (HEART) -->
             <button
-              class="w-full mt-2 py-1.5 rounded-lg border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors">Keranjang</button>
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Arunika</h4>
+
+            <!-- Harga & Coret -->
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 42.000</span>
+              <span class="text-[10px] text-gray-400 line-through">Rp 72.000</span>
+            </div>
+
+            <!-- Meta: Lokasi & Terjual -->
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Bandung
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 1rb+</span>
+            </div>
+
+            <!-- BUTTON KERANJANG DI BAWAH -->
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
           </div>
         </div>
 
-        <!-- Item 3: BIJI KOPI -->
+        <!-- PRODUK 2 -->
         <div
-          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative fade-in"
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture2.jpg" class="w-full h-full object-cover">
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Lembah Seroja</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 45.000</span>
+              <span class="text-[10px] text-gray-400 line-through">Rp 75.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Jakarta
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 500+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 3 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture3.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-accent text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Hot</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Lembah Seroja</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 45.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Bandung
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 250+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 4 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture4.jpg" class="w-full h-full object-cover">
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Bukit Sagara</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 43.000</span>
+              <span class="text-[10px] text-gray-400 line-through">Rp 103.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Surabaya
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 100+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 5 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture5.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Senja Lestari</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 40.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+
+
+        <!-- PRODUK 6 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture6.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Kopi Kopi Embun Pagi</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 38.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 7 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture7.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Gunung Lodra</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 33.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 8 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture8.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Hujan Batu</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 45.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 9 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture9.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Seroja Hitam</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 44.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 10 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kopi">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture10.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kopi Bumi Madya</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 30.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 11 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
           data-category="wedang">
-          <div class="relative h-40 lg:h-48 bg-gray-100 overflow-hidden">
-            <img src="img/produk/Picture13.png"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-3">
-            <div class="text-[10px] text-gray-400 uppercase">Biji Kopi</div>
-            <h4 class="font-medium text-sm lg:text-base line-clamp-2 mb-1 group-hover:text-primary">Robusta Dampit 500g
-            </h4>
-            <span class="font-bold text-primary">Rp 45.000</span>
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture11.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
             <button
-              class="w-full mt-2 py-1.5 rounded-lg border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors">Keranjang</button>
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Wedang</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Wedang Seruni</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 20.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
           </div>
         </div>
 
-        <!-- Item 4: MINUMAN -->
+        <!-- PRODUK 12 -->
         <div
-          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative fade-in"
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="wedang">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture12.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Wedang</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Wedang Rempah Wening</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 28.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 13 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="wedang">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture13.png" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Wedang</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Wedang Jahe Lembut</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 25.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 14 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="wedang">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture14.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Wedang</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Gula Aren Seru</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 24.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 15 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="teh">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture15.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Teh</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Teh Pucuk Salju</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 20.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 16 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="teh">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture16.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Teh</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Teh Luruh Senja</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 17.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 17 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="teh">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture17.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Teh</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Teh Sakura Lembayung</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 18.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 18 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="teh">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture18.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Teh</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Teh Melati Aruna</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 21.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 19 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
           data-category="cokelat">
-          <div class="relative h-40 lg:h-48 bg-gray-100 overflow-hidden">
-            <img src="img/produk/Picture15.jpg"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-3">
-            <div class="text-[10px] text-gray-400 uppercase">Minuman</div>
-            <h4 class="font-medium text-sm lg:text-base line-clamp-2 mb-1 group-hover:text-primary">Matcha Latte Premium
-            </h4>
-            <span class="font-bold text-primary">Rp 24.000</span>
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture19.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
             <button
-              class="w-full mt-2 py-1.5 rounded-lg border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors">Keranjang</button>
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Cokelat</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Coklat Kakao Arunika</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 19.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
           </div>
         </div>
 
-        <!-- Item 4: MINUMAN -->
+        <!-- PRODUK 20 -->
         <div
-          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative fade-in"
-          data-category="kunyit">
-          <div class="relative h-40 lg:h-48 bg-gray-100 overflow-hidden">
-            <img src="img/produk/Picture16.jpg"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-3">
-            <div class="text-[10px] text-gray-400 uppercase">Minuman</div>
-            <h4 class="font-medium text-sm lg:text-base line-clamp-2 mb-1 group-hover:text-primary">Matcha Latte Premium
-            </h4>
-            <span class="font-bold text-primary">Rp 24.000</span>
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="cokelat">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture20.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
             <button
-              class="w-full mt-2 py-1.5 rounded-lg border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors">Keranjang</button>
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Cokelat</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Coklat Lembah Cokro</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 20.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
           </div>
         </div>
+
+        <!-- PRODUK 21 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="cokelat">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture21.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Cokelat</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Coklat Hujan Manis</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 17.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 22 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kunyit">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture22.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kunyit</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kunyit Rempah Madya</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 20.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 23 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kunyit">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture23.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kunyit</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kunyit Lembah Emas</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 19.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUK 24 -->
+        <div
+          class="product-item bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer flex flex-col h-full relative"
+          data-category="kunyit">
+          <div class="img-zoom-container relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture24.jpg" class="w-full h-full object-cover">
+            <span
+              class="absolute top-2 left-2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bundle</span>
+            <!-- WISHLIST BUTTON -->
+            <button
+              class="wishlist-btn absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-gray-400 hover:text-accent hover:bg-white transition-all shadow-sm"
+              onclick="toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3 flex flex-col flex-1">
+            <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kunyit</div>
+            <h4
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              Bubuk Kunyit Wangi Rimba</h4>
+
+            <div class="flex items-center gap-2 mt-1">
+              <span class="font-bold text-base text-primary">Rp 24.000</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 mb-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-gray-400"></i> Tangerang
+              </div>
+              <span class="text-gray-300">|</span>
+              <span>Terjual 50+</span>
+            </div>
+
+            <button onclick="addToCart()"
+              class="mt-auto w-full bg-white border border-primary text-primary font-bold py-1.5 rounded-lg text-xs hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-1">
+              <i class="fa-solid fa-plus"></i> Keranjang
+            </button>
+          </div>
+        </div>
+
+
 
       </div>
 
