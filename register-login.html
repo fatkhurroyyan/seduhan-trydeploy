@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seduhan - Coffee Shop (Interactive)</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- SweetAlert2 untuk Alert Cantik -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Custom Config untuk Warna -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Nunito"', 'sans-serif'],
+          },
+          colors: {
+            primary: '#8A6240',    // Coffee Bean
+            secondary: '#D4A373',  // Latte
+            accent: '#E63946',     // Red Alert
+            background: '#F8F9FA', // Light Gray-ish
+            surface: '#FFFFFF',
+            dark: '#1C2229',
+            coffee: {
+              50: "#F3EFEC",
+              75: "#CFBFB1",
+              100: "#BBA490",
+              200: "#9E7D60",
+              300: "#8A6240",
+              400: "#61452D",
+              500: "#543C27",
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Animasi transisi halus */
+    .fade-in {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Input Error State Animation */
+    .input-error {
+      border: 1px solid #EF4444 !important;
+      /* Red-500 */
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px);
+      }
+
+      75% {
+        transform: translateX(5px);
+      }
+    }
+
+    /* Button Disabled State */
+    .btn-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+  </style>
+</head>
+
+<body class="bg-coffee-50 text-coffee-300 font-sans antialiased selection:bg-coffee-50 selection:text-white">
+
+  <!-- ========================================== -->
+  <!-- AUTHENTICATION VIEW (LOGIN & REGISTER)     -->
+  <!-- ========================================== -->
+  <div id="auth-view" class="min-h-screen flex items-center justify-center p-4 md:p-8">
+    <div
+      class="bg-background w-full max-w-5xl rounded-[30px] shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[650px] md:h-[750px] relative fade-in">
+
+      <!-- Left Side: Forms -->
+      <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center relative z-10">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group mb-4">
+          <img src="img/LOGO.svg" class="h-8 lg:h-12">
+          <!-- Tulisan Seduhan (Visible) -->
+          <img src="img/Seduhan.svg" class="">
+        </div>
+
+        <div class="max-w-md mx-auto w-full">
+          <p class="text-sm text-gray-500 mb-1">Selamat datang di Seduhan</p>
+          <h1 id="auth-title" class="text-3xl font-bold text-coffee-600 mb-6">Masuk ke akun Kamu</h1>
+
+          <!-- Toggle Switch Login/Register -->
+          <div class="bg-coffee-50 p-1 rounded-xl flex mb-8 relative">
+            <button onclick="switchTab('login')" id="tab-login"
+              class="flex-1 py-2 text-sm font-extrabold rounded-lg transition-all duration-300 bg-white shadow-sm text-coffee-600">
+              Login
+            </button>
+            <button onclick="switchTab('register')" id="tab-register"
+              class="flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-300 text-gray-500 hover:text-coffee-600">
+              Register
+            </button>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- LOGIN FORM                                 -->
+          <!-- ========================================== -->
+          <form id="form-login" onsubmit="handleLogin(event)" class="block fade-in">
+            <!-- Phone Input -->
+            <div class="relative mb-2">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="phone" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <!-- Added sanitizePhone to oninput -->
+              <input type="text" id="login-phone" placeholder="Nomor Telepon (Contoh: 0812...)"
+                class="w-full pl-12 pr-4 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm transition-all"
+                oninput="sanitizePhone(this, 'error-login-phone'); validateLoginForm()">
+            </div>
+            <p id="error-login-phone" class="text-red-500 text-xs mb-3 hidden ml-1">Nomor tidak valid</p>
+
+            <!-- Password Input -->
+            <div class="relative mb-2">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="lock" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <input type="password" id="login-pass" placeholder="Password"
+                class="w-full pl-12 pr-12 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm transition-all"
+                oninput="validateLoginForm()">
+              <button type="button" onclick="togglePassword('login-pass', 'login-eye')"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-coffee-400 cursor-pointer z-20">
+                <i id="login-eye" data-lucide="eye" class="h-5 w-5"></i>
+              </button>
+            </div>
+            <p id="error-login-pass" class="text-red-500 text-xs mb-4 hidden ml-1">Password salah</p>
+
+            <!-- Forgot & Remember -->
+            <div class="flex items-center justify-between mb-6 text-xs md:text-sm">
+              <label class="flex items-center text-gray-500 cursor-pointer select-none">
+                <input type="checkbox" class="mr-2 rounded text-coffee-400 focus:ring-coffee-400">
+                Ingat saya
+              </label>
+              <a href="#" class="text-coffee-400 font-semibold hover:underline">Lupa Password?</a>
+            </div>
+
+            <!-- Submit Button (Disabled by default) -->
+            <button type="submit" id="btn-login" disabled
+              class="btn-disabled w-full bg-coffee-300 text-white font-bold py-3.5 rounded-xl shadow-lg hover:bg-coffee-400 transition transform mb-6">
+              Masuk
+            </button>
+
+            <!-- Social Login -->
+            <div class="relative mb-6">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-xs">
+                <span class="px-2 bg-background text-gray-500">Atau masuk dengan</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <button type="button"
+                class="flex items-center justify-center bg-white py-2.5 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition gap-2">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="Google">
+                <span class="text-sm font-medium text-gray-700">Google</span>
+              </button>
+              <button type="button"
+                class="flex items-center justify-center bg-white py-2.5 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition gap-2">
+                <i data-lucide="apple" class="w-5 h-5 text-black"></i>
+                <span class="text-sm font-medium text-gray-700">Apple</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- ========================================== -->
+          <!-- REGISTER FORM                              -->
+          <!-- ========================================== -->
+          <form id="form-register" onsubmit="handleRegister(event)" class="hidden fade-in">
+
+            <!-- Nama -->
+            <div class="relative mb-3">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="user" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <input type="text" id="reg-name" placeholder="Nama Lengkap"
+                class="w-full pl-12 pr-4 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm"
+                oninput="validateRegisterForm()">
+            </div>
+
+            <!-- Email -->
+            <div class="relative mb-1">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="mail" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <input type="email" id="reg-email" placeholder="Alamat Email"
+                class="w-full pl-12 pr-4 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm"
+                oninput="validateRegisterForm()">
+            </div>
+            <p id="error-reg-email" class="text-red-500 text-[10px] mb-2 hidden ml-1">Email tidak valid</p>
+
+            <!-- Phone -->
+            <div class="relative mb-1">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="phone" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <!-- Added sanitizePhone to oninput -->
+              <input type="text" id="reg-phone" placeholder="Nomor Handphone"
+                class="w-full pl-12 pr-4 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm"
+                oninput="sanitizePhone(this, 'error-reg-phone'); validateRegisterForm()">
+            </div>
+            <p id="error-reg-phone" class="text-red-500 text-[10px] mb-2 hidden ml-1">Nomor sudah terdaftar</p>
+
+            <!-- Password with Strength Meter -->
+            <div class="relative mb-1">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="lock" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <input type="password" id="reg-pass" placeholder="Buat Password"
+                class="w-full pl-12 pr-12 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm"
+                oninput="checkPasswordStrength(); validateRegisterForm()">
+
+              <button type="button" onclick="togglePassword('reg-pass', 'reg-eye')"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-coffee-400 cursor-pointer z-20">
+                <i id="reg-eye" data-lucide="eye" class="h-5 w-5"></i>
+              </button>
+            </div>
+
+            <!-- Strength Indicator -->
+            <div id="password-strength-container" class="mb-4 hidden transition-all">
+              <div class="flex gap-1 h-1 mb-1">
+                <div id="strength-bar-1" class="flex-1 bg-gray-200 rounded-full transition-colors duration-300"></div>
+                <div id="strength-bar-2" class="flex-1 bg-gray-200 rounded-full transition-colors duration-300"></div>
+                <div id="strength-bar-3" class="flex-1 bg-gray-200 rounded-full transition-colors duration-300"></div>
+              </div>
+              <p id="password-feedback" class="text-[10px] text-gray-400 text-right">Minimal 8 karakter</p>
+            </div>
+
+            <button type="submit" id="btn-register" disabled
+              class="btn-disabled w-full mt-2 bg-coffee-300 text-white font-bold py-3.5 rounded-xl shadow-lg hover:bg-coffee-400 transition transform mb-6">
+              Daftar Sekarang
+            </button>
+          </form>
+
+          <p class="mt-8 text-[10px] text-center text-gray-400 leading-relaxed">
+            Dengan mendaftar, kamu menyetujui <span
+              class="text-coffee-400 font-bold cursor-pointer hover:underline">Syarat &
+              Ketentuan</span> dan <span class="text-coffee-400 font-bold cursor-pointer hover:underline">Kebijakan
+              Privasi</span> kami.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side: Image Collage (Hidden on Mobile) -->
+      <div class="hidden md:block w-1/2 relative bg-white">
+        <div class="grid grid-cols-2 h-full w-full gap-1 p-1">
+          <!-- Placeholder images used for stability -->
+          <div class="h-full w-full bg-cover bg-center rounded-tl-[20px] rounded-bl-[20px]"
+            style="background-image: url('img/produk/Picture11.jpg')">
+          </div>
+          <div class="flex flex-col gap-1 h-full">
+            <div class="h-1/2 w-full bg-cover bg-center rounded-tr-[20px]"
+              style="background-image: url('img/produk/Picture7.jpg')">
+            </div>
+            <div class="h-1/2 w-full bg-cover bg-center rounded-br-[20px]"
+              style="background-image: url('img/produk/Picture23.jpg')">
+            </div>
+          </div>
+        </div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-coffee-600 opacity-20 pointer-events-none mix-blend-multiply"></div>
+
+        <!-- Welcome Text Overlay -->
+        <div class="absolute bottom-10 left-10 right-10 text-white z-20 bg-coffee-300/75 p-4 rounded-lg">
+          <h2 class="text-2xl font-bold mb-2 drop-shadow-lg">Nikmati Setiap Momen</h2>
+          <p class="text-sm opacity-90 drop-shadow-md">Bergabunglah dengan komunitas pecinta kopi kami dan dapatkan
+            penawaran eksklusif setiap hari.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- MOCK DATABASE ---
+    const MOCK_DB = [
+      { phone: '08123456789', email: 'user@example.com', password: 'Admin123!', name: 'Fikri' }
+    ];
+
+    // --- NAVIGATION LOGIC ---
+    function switchTab(tab) {
+      const loginBtn = document.getElementById('tab-login');
+      const regBtn = document.getElementById('tab-register');
+      const loginForm = document.getElementById('form-login');
+      const regForm = document.getElementById('form-register');
+      const title = document.getElementById('auth-title');
+
+      if (tab === 'login') {
+        loginBtn.className = "flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-300 bg-white shadow-sm text-coffee-600 border border-gray-100";
+        regBtn.className = "flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-300 text-gray-500 hover:text-coffee-600";
+        loginForm.classList.remove('hidden');
+        regForm.classList.add('hidden');
+        title.innerText = "Masuk ke akun Kamu";
+      } else {
+        regBtn.className = "flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-300 bg-white shadow-sm text-coffee-600 border border-gray-100";
+        loginBtn.className = "flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-300 text-gray-500 hover:text-coffee-600";
+        regForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        title.innerText = "Mulai Sekarang";
+      }
+
+      // Reset forms when switching
+      document.querySelectorAll('input').forEach(input => {
+        input.value = '';
+        input.classList.remove('input-error');
+      });
+      document.querySelectorAll('p[id^="error-"]').forEach(p => p.classList.add('hidden'));
+      validateLoginForm();
+      validateRegisterForm();
+    }
+
+    // --- INPUT SANITIZATION (NUMBERS ONLY) ---
+    function sanitizePhone(input, errorId) {
+      const originalValue = input.value;
+      // Hanya izinkan angka (0-9)
+      const cleanValue = originalValue.replace(/[^0-9]/g, '');
+
+      if (originalValue !== cleanValue) {
+        input.value = cleanValue;
+
+        // Tampilkan peringatan sementara
+        const errorEl = document.getElementById(errorId);
+        if (errorEl) {
+          errorEl.innerText = "Hanya boleh angka";
+          errorEl.classList.remove('hidden');
+          errorEl.classList.add('text-orange-500'); // Warna warning (orange)
+          errorEl.classList.remove('text-red-500'); // Hapus warna error (merah)
+
+          // Hapus peringatan setelah 1.5 detik
+          setTimeout(() => {
+            // Cek apakah pesan masih "Hanya boleh angka", kalau ya baru di hide
+            // Ini untuk mencegah kita meng-hide pesan error validasi (seperti "Nomor tidak terdaftar")
+            if (errorEl.innerText === "Hanya boleh angka") {
+              errorEl.classList.add('hidden');
+              errorEl.classList.remove('text-orange-500');
+              errorEl.classList.add('text-red-500'); // Reset ke default error color
+            }
+          }, 1500);
+        }
+      }
+    }
+
+    // --- PASSWORD VISIBILITY TOGGLE ---
+    function togglePassword(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.setAttribute('stroke', '#8A6240'); // Change color to active
+      } else {
+        input.type = "password";
+        icon.setAttribute('stroke', 'currentColor');
+      }
+    }
+
+    // --- FORM VALIDATION: LOGIN ---
+    function validateLoginForm() {
+      const phone = document.getElementById('login-phone').value;
+      const pass = document.getElementById('login-pass').value;
+      const btn = document.getElementById('btn-login');
+
+      // Simple logic: Enable if both fields have content
+      if (phone.length > 3 && pass.length > 0) {
+        btn.disabled = false;
+        btn.classList.remove('btn-disabled');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('btn-disabled');
+      }
+    }
+
+    // --- FORM VALIDATION: REGISTER ---
+    function validateRegisterForm() {
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const phone = document.getElementById('reg-phone').value;
+      const pass = document.getElementById('reg-pass').value;
+      const btn = document.getElementById('btn-register');
+
+      // Regex for simple validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isEmailValid = emailRegex.test(email);
+      const isPhoneValid = phone.length >= 10 && /^\d+$/.test(phone);
+
+      // Determine password strength (must be at least Medium)
+      const isPassStrong = checkPasswordStrength() >= 2;
+
+      if (name.length > 2 && isEmailValid && isPhoneValid && isPassStrong) {
+        btn.disabled = false;
+        btn.classList.remove('btn-disabled');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('btn-disabled');
+      }
+    }
+
+    // --- PASSWORD STRENGTH METER ---
+    function checkPasswordStrength() {
+      const pass = document.getElementById('reg-pass').value;
+      const container = document.getElementById('password-strength-container');
+      const bar1 = document.getElementById('strength-bar-1');
+      const bar2 = document.getElementById('strength-bar-2');
+      const bar3 = document.getElementById('strength-bar-3');
+      const feedback = document.getElementById('password-feedback');
+
+      if (pass.length === 0) {
+        container.classList.add('hidden');
+        return 0;
+      }
+
+      container.classList.remove('hidden');
+
+      let strength = 0;
+      if (pass.length >= 8) strength++; // Length check
+      if (/[A-Z]/.test(pass) && /[0-9]/.test(pass)) strength++; // Complexity check
+      if (pass.length >= 12) strength++; // Extra length check
+
+      // Reset colors
+      bar1.className = 'flex-1 bg-gray-200 rounded-full transition-colors duration-300';
+      bar2.className = 'flex-1 bg-gray-200 rounded-full transition-colors duration-300';
+      bar3.className = 'flex-1 bg-gray-200 rounded-full transition-colors duration-300';
+
+      if (strength === 0) {
+        feedback.innerText = "Terlalu pendek (Min 8)";
+        feedback.className = "text-[10px] text-red-500 text-right font-bold";
+      } else if (strength === 1) {
+        bar1.classList.remove('bg-gray-200'); bar1.classList.add('bg-red-500');
+        feedback.innerText = "Lemah";
+        feedback.className = "text-[10px] text-red-500 text-right";
+      } else if (strength === 2) {
+        bar1.classList.remove('bg-gray-200'); bar1.classList.add('bg-yellow-500');
+        bar2.classList.remove('bg-gray-200'); bar2.classList.add('bg-yellow-500');
+        feedback.innerText = "Lumayan";
+        feedback.className = "text-[10px] text-yellow-600 text-right";
+      } else {
+        bar1.classList.remove('bg-gray-200'); bar1.classList.add('bg-green-500');
+        bar2.classList.remove('bg-gray-200'); bar2.classList.add('bg-green-500');
+        bar3.classList.remove('bg-gray-200'); bar3.classList.add('bg-green-500');
+        feedback.innerText = "Kuat";
+        feedback.className = "text-[10px] text-green-600 text-right font-bold";
+      }
+
+      return strength;
+    }
+
+    // --- HANDLE LOGIN SUBMIT ---
+    function handleLogin(e) {
+      e.preventDefault();
+      const phoneInput = document.getElementById('login-phone');
+      const passInput = document.getElementById('login-pass');
+      const phoneError = document.getElementById('error-login-phone');
+      const passError = document.getElementById('error-login-pass');
+
+      // Reset previous errors
+      phoneInput.classList.remove('input-error');
+      passInput.classList.remove('input-error');
+      phoneError.classList.add('hidden');
+      passError.classList.add('hidden');
+
+      // Simulate API loading
+      const btn = document.getElementById('btn-login');
+      const originalText = btn.innerText;
+      btn.innerHTML = `<i data-lucide="loader-2" class="animate-spin h-5 w-5 mx-auto"></i>`;
+      lucide.createIcons();
+      btn.disabled = true;
+
+      setTimeout(() => {
+        // Check Database
+        const user = MOCK_DB.find(u => u.phone === phoneInput.value);
+
+        if (!user) {
+          // User not found
+          phoneInput.classList.add('input-error');
+          phoneError.innerText = "Nomor Handphone belum terdaftar.";
+          phoneError.classList.remove('hidden');
+          phoneError.classList.remove('text-orange-500');
+          phoneError.classList.add('text-red-500'); // Ensure it's red for error
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Gagal',
+            text: 'Nomor HP tidak ditemukan. Silakan daftar terlebih dahulu.',
+            confirmButtonColor: '#8A6240'
+          });
+        } else if (user.password !== passInput.value) {
+          // Wrong password
+          passInput.classList.add('input-error');
+          passError.classList.remove('hidden');
+          Swal.fire({
+            icon: 'warning',
+            title: 'Password Salah',
+            text: 'Coba cek lagi password kamu ya.',
+            confirmButtonColor: '#8A6240'
+          });
+        } else {
+          // Success
+          Swal.fire({
+            icon: 'success',
+            title: `Halo, ${user.name}!`,
+            text: 'Berhasil masuk ke Seduhan.',
+            timer: 1500,
+            showConfirmButton: false
+          }).then(() => {
+            // Redirect logic here
+            console.log("Logged in!");
+          });
+        }
+
+        // Reset Button
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }, 1000); // 1 sec delay simulation
+    }
+
+    // --- HANDLE REGISTER SUBMIT ---
+    function handleRegister(e) {
+      e.preventDefault();
+      const phoneInput = document.getElementById('reg-phone');
+      const emailInput = document.getElementById('reg-email');
+      const phoneError = document.getElementById('error-reg-phone');
+
+      // Check if phone already exists
+      const exists = MOCK_DB.some(u => u.phone === phoneInput.value);
+
+      if (exists) {
+        phoneInput.classList.add('input-error');
+        phoneError.innerText = "Nomor ini sudah terdaftar!";
+        phoneError.classList.remove('hidden');
+        phoneError.classList.remove('text-orange-500');
+        phoneError.classList.add('text-red-500');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Sudah Terdaftar',
+          text: 'Nomor HP ini sudah digunakan. Silakan login.',
+          confirmButtonColor: '#8A6240'
+        });
+        return;
+      }
+
+      // Success Register
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil Mendaftar!',
+        text: 'Akun kamu berhasil dibuat. Silakan login.',
+        confirmButtonColor: '#8A6240'
+      }).then(() => {
+        switchTab('login');
+        // Populate login field automatically for better UX
+        document.getElementById('login-phone').value = phoneInput.value;
+        validateLoginForm(); // Re-check button state
+      });
+    }
+
+    // --- INIT ---
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons(); // Initialize icons
+      // Initial validation state
+      validateLoginForm();
+      validateRegisterForm();
+    });
+  </script>
+</body>
+
+</html>
