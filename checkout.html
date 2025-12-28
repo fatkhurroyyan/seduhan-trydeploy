@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/3f57075609.js" crossorigin="anonymous"></script>
+
+  <!-- Google Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=home" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shield" />
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="img/LOGO.svg" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#6F4E37', secondary: '#D4A373', accent: '#E63946', background: '#F8F9FA', success: '#10B981' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    /* Radio Button Custom Styling */
+    .radio-card:checked+div {
+      border-color: #6F4E37;
+      background-color: #FDFBF7;
+    }
+
+    .radio-card:checked+div .check-icon {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-32 lg:pb-0">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 py-4 flex items-center gap-4">
+      <a href="keranjang.html" class="text-dark hover:text-primary"><i class="fa-solid fa-arrow-left text-xl"></i></a>
+      <h1 class="text-lg font-bold flex-1">Pengiriman</h1>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-10 py-6 flex flex-col lg:flex-row gap-8">
+
+    <!-- LEFT COLUMN: FORM DATA -->
+    <div class="flex-1 space-y-6">
+
+      <!-- 1. Alamat Pengiriman -->
+      <section class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+        <h3 class="font-bold text-dark mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-location-dot text-primary"></i> Alamat Pengiriman
+        </h3>
+        <div
+          class="border border-gray-200 rounded-lg p-4 relative hover:border-primary transition-colors cursor-pointer group">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-bold text-sm">Admin Kreatif</span>
+            <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded">Utama</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed">Jl. Telekomunikasi No. 1, Terusan Buahbatu, Bojongsoang, Kab.
+            Bandung, Jawa Barat 40257</p>
+          <p class="text-sm text-gray-500 mt-1">0812-3456-7890</p>
+          <button class="absolute top-4 right-4 text-primary text-xs font-bold hover:underline">Ubah</button>
+        </div>
+      </section>
+
+      <!-- 2. Detail Pesanan -->
+      <section class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+        <h3 class="font-bold text-dark mb-4">Pesanan (3 Item)</h3>
+        <div class="space-y-4">
+          <!-- Item 1 -->
+          <div class="flex gap-3">
+            <div class="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
+              <img src="img/produk/Picture1.jpg" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+              <h4 class="font-medium text-sm line-clamp-1">Arabika Gayo Wine 200g</h4>
+              <p class="text-xs text-gray-500">1 x Rp 65.000</p>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="flex gap-3">
+            <div class="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
+              <img src="img/produk/Picture2.jpg" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+              <h4 class="font-medium text-sm line-clamp-1">Croissant Almond Butter</h4>
+              <p class="text-xs text-gray-500">2 x Rp 22.000</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Pilih Pengiriman -->
+      <section class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+        <h3 class="font-bold text-dark mb-4">Pilih Pengiriman</h3>
+        <div class="space-y-3">
+          <label class="relative block cursor-pointer">
+            <input type="radio" name="shipping" class="radio-card peer sr-only" checked>
+            <div
+              class="p-4 border border-gray-200 rounded-xl peer-hover:border-primary transition-all flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center"><i
+                    class="fa-solid fa-truck-fast"></i></div>
+                <div>
+                  <h4 class="font-bold text-sm text-dark">Reguler (JNE/J&T)</h4>
+                  <p class="text-xs text-gray-500">Estimasi tiba 2-3 hari</p>
+                </div>
+              </div>
+              <span class="font-bold text-sm text-dark mr-8">Rp 10.000</span>
+              <i
+                class="fa-solid fa-circle-check text-primary absolute top-1/2 right-4 -translate-y-1/2 check-icon hidden"></i>
+            </div>
+          </label>
+
+          <label class="relative block cursor-pointer">
+            <input type="radio" name="shipping" class="radio-card peer sr-only">
+            <div
+              class="p-4 border border-gray-200 rounded-xl peer-hover:border-primary transition-all flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-50 text-green-600 rounded-full flex items-center justify-center"><i
+                    class="fa-solid fa-motorcycle"></i></div>
+                <div>
+                  <h4 class="font-bold text-sm text-dark">Instant (Gojek/Grab)</h4>
+                  <p class="text-xs text-gray-500">Tiba dalam 2 jam</p>
+                </div>
+              </div>
+              <span class="font-bold text-sm text-dark mr-8">Rp 25.000</span>
+              <i
+                class="fa-solid fa-circle-check text-primary absolute top-1/2 right-4 -translate-y-1/2 check-icon hidden"></i>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- 4. Metode Pembayaran -->
+      <section class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+        <h3 class="font-bold text-dark mb-4">Metode Pembayaran</h3>
+        <div class="space-y-3">
+          <label class="relative block cursor-pointer">
+            <input type="radio" name="payment" class="radio-card peer sr-only" checked>
+            <div
+              class="p-4 border border-gray-200 rounded-xl peer-hover:border-primary transition-all flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="img/qris-logo.png" class="h-6 object-contain" alt="QRIS">
+                <div>
+                  <h4 class="font-bold text-sm text-dark">QRIS</h4>
+                  <p class="text-xs text-gray-500">Gopay, OVO, Dana, ShopeePay</p>
+                </div>
+              </div>
+              <i
+                class="fa-solid fa-circle-check text-primary absolute top-1/2 right-4 -translate-y-1/2 check-icon hidden"></i>
+            </div>
+          </label>
+          <!-- Disabled Option (Visual Only) -->
+          <div
+            class="p-4 border border-gray-100 rounded-xl flex items-center justify-between opacity-50 cursor-not-allowed bg-gray-50">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-building-columns text-gray-400 text-xl pl-1"></i>
+              <div>
+                <h4 class="font-bold text-sm text-gray-400">Transfer Bank (Maintenance)</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RIGHT COLUMN: SUMMARY (Sticky on Desktop) -->
+    <div class="lg:w-96 shrink-0">
+      <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm sticky top-24">
+        <h3 class="font-bold mb-4 text-lg">Ringkasan Belanja</h3>
+
+        <div class="space-y-2 text-sm text-gray-600 mb-4 pb-4 border-b border-gray-100">
+          <div class="flex justify-between"><span>Total Harga (3 Barang)</span><span>Rp 109.000</span></div>
+          <div class="flex justify-between"><span>Biaya Pengiriman</span><span>Rp 10.000</span></div>
+          <div class="flex justify-between"><span>Biaya Layanan</span><span>Rp 1.000</span></div>
+          <div class="flex justify-between text-green-600"><span>Diskon Pengiriman</span><span>-Rp 0</span></div>
+        </div>
+
+        <div class="flex justify-between items-center mb-6">
+          <span class="font-bold text-lg">Total Tagihan</span>
+          <span class="font-bold text-xl text-primary">Rp 120.000</span>
+        </div>
+
+        <p class="text-[10px] text-gray-400 mb-4 leading-tight">Dengan melanjutkan pembayaran, Anda menyetujui <a
+            href="#" class="text-primary underline">Syarat & Ketentuan</a> Seduhan.</p>
+
+        <button onclick="window.location.href='pembayaran.html'"
+          class="hidden lg:block w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg hover:bg-primary/90 hover:scale-[1.02] transition-transform">
+          Bayar Sekarang
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MOBILE BOTTOM CHECKOUT BAR -->
+  <div
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex justify-between items-center z-50 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+    <div class="flex flex-col">
+      <span class="text-xs text-gray-500">Total Tagihan</span>
+      <span class="font-bold text-lg text-primary">Rp 120.000</span>
+    </div>
+    <button onclick="window.location.href='pembayaran.html'"
+      class="bg-primary text-white font-bold px-8 py-2.5 rounded-xl text-sm shadow-lg">Bayar</button>
+  </div>
+
+</body>
+
+</html>
