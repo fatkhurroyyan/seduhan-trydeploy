@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karir - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#6F4E37', secondary: '#D4A373', accent: '#E63946', background: '#FAFAF9', surface: '#FFFFFF', dark: '#2C2C2C' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR STICKY GLASSMORPHISM -->
+  <header id="navbar"
+    class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-3 lg:py-4">
+      <div class="flex items-center justify-between gap-4 lg:gap-8">
+
+        <!-- Logo & Text Seduhan -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group">
+          <img src="img/LOGO.svg" class="h-8 lg:h-12">
+          <!-- Tulisan Seduhan (Visible) -->
+          <img src="img/Seduhan.svg" class="hidden lg:flex">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-xl relative hidden md:block group">
+          <input type="text" placeholder="Cari seduhan favoritmu..."
+            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 group-hover:text-primary transition-colors"></i>
+        </div>
+
+        <!-- Mobile Search Icon (Placeholder) -->
+        <div class="md:hidden flex-1 flex justify-end pr-2">
+          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 lg:gap-5">
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-heart text-xl text-primary"></i>
+          </button>
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-message text-xl text-primary"></i>
+          </button>
+
+          <a href="keranjang.html"><button
+              class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center hidden lg:flex justify-center transition-colors group">
+              <i class="fa-solid fa-cart-shopping text-xl text-primary group-hover:text-primary transition-colors"></i>
+              <span id="cart-count"
+                class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-300">0</span>
+            </button></a>
+
+          <a href="notifikasi.html"><button
+              class="w-10 h-10 rounded-full hover:bg-gray-100 hidden lg:flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-bell text-xl text-primary"></i>
+            </button></a>
+
+
+          <div class="hidden lg:flex items-center gap-2 pl-4 border-l border-gray-200 cursor-pointer"
+            onclick="location.href='profil.html'">
+            <div class="text-right hidden xl:block">
+              <p class="text-xs font-bold text-dark">Belva Mischah</p>
+              <p class="text-[10px] text-gray-500">Member Gold</p>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+              class="w-9 h-9 rounded-full ring-2 ring-white shadow-sm" alt="User">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 py-3">
+      <nav class="flex text-xs text-gray-500">
+        <ol class="inline-flex items-center space-x-1">
+          <li><a href="index.html" class="hover:text-primary">Beranda</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+          <li class="text-primary font-medium">Karir</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-5 lg:px-10 py-8 lg:py-12">
+
+    <div class="text-center mb-12">
+      <h1 class="text-3xl lg:text-4xl font-bold text-dark mb-4">Berkarya Bersama Seduhan</h1>
+      <p class="text-gray-500 max-w-2xl mx-auto">Bergabunglah dengan tim yang bersemangat untuk merevolusi industri kopi
+        Indonesia. Jadikan passionmu sebagai karirmu.</p>
+    </div>
+
+    <!-- OPEN POSITIONS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Job Card 1 (Related to User's Field) -->
+      <div
+        class="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all group cursor-pointer relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">HOT JOB
+        </div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-xl"><i
+              class="fa-solid fa-pen-nib"></i></div>
+          <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">Fulltime - Bandung</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 group-hover:text-primary">Creative Content Creator</h3>
+        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Bertanggung jawab membuat konten visual dan video menarik
+          untuk media sosial Seduhan. Menguasai CapCut, Premiere, dan tren TikTok.</p>
+        <div class="flex gap-2">
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">Videography</span>
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">Editing</span>
+        </div>
+      </div>
+
+      <!-- Job Card 2 -->
+      <div
+        class="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all group cursor-pointer">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-xl"><i
+              class="fa-solid fa-code"></i></div>
+          <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">Remote</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 group-hover:text-primary">Frontend Developer</h3>
+        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Mengembangkan antarmuka website Seduhan menggunakan React/Vue
+          dan Tailwind CSS. Fokus pada responsivitas dan performa.</p>
+        <div class="flex gap-2">
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">HTML/CSS</span>
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">Javascript</span>
+        </div>
+      </div>
+
+      <!-- Job Card 3 -->
+      <div
+        class="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all group cursor-pointer">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center text-accent text-xl"><i
+              class="fa-solid fa-bullhorn"></i></div>
+          <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">Internship - Bandung</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 group-hover:text-primary">Digital Marketing Intern</h3>
+        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Membantu eksekusi kampanye marketing, SEO dasar, dan
+          manajemen komunitas online.</p>
+        <div class="flex gap-2">
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">Copywriting</span>
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">SEO</span>
+        </div>
+      </div>
+
+      <!-- Job Card 4 -->
+      <div
+        class="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all group cursor-pointer">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl"><i
+              class="fa-solid fa-mug-saucer"></i></div>
+          <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">Part Time - Jakarta</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2 group-hover:text-primary">Barista Trainer</h3>
+        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Memberikan pelatihan seduh manual dan espresso kepada mitra
+          Seduhan Academy.</p>
+        <div class="flex gap-2">
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">SCA Certified</span>
+          <span class="text-[10px] border border-gray-200 px-2 py-1 rounded text-gray-500">Teaching</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50">
+    <a href="seduhan.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary"><i
+        class="fa-solid fa-house text-xl"></i><span class="text-[10px]">Beranda</span></a>
+    <a href="seduhan_cart.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary"><i
+        class="fa-solid fa-bag-shopping text-xl"></i><span class="text-[10px]">Pesanan</span></a>
+    <a href="seduhan_profile.html" class="flex flex-col items-center gap-1 text-primary"><i
+        class="fa-regular fa-user text-xl font-bold"></i><span class="text-[10px] font-medium">Profil</span></a>
+  </nav>
+
+</body>
+
+</html>

@@ -181,21 +181,31 @@
 
   <!-- MOBILE NAV -->
   <nav
-    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50">
-    <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
-      <i class="fa-regular fa-house text-xl"></i><span class="text-[10px]">Beranda</span>
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50 pb-safe shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)]">
+    <a href="index.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-house text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Beranda</span>
     </a>
-    <a href="kategori.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
-      <i class="fa-regular fa-clone text-xl"></i><span class="text-[10px]">Kategori</span>
+    <a href="kategori.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-clone text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Kategori</span>
     </a>
-    <div class="relative -top-8"><a href="keranjang.html"><button
-          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white"><i
-            class="fa-solid fa-cart-shopping"></i></button></a></div>
-    <a href="notifikasi.html" class="flex flex-col items-center gap-1 text-primary hover:text-primary">
-      <i class="fa-solid fa-bell text-xl"></i><span class="text-[10px]">Notifikasi</span>
+    <div class="relative -top-8 group">
+      <a href="keranjang.html"><button
+          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white transform hover:scale-110 active:scale-95 transition-all">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button></a>
+    </div>
+    <a href="notifikasi.html" class="flex flex-col items-center gap-1 text-primary group">
+      <i class="fa-solid fa-bell text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Notifikasi</span>
     </a>
-    <a href="profil.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary">
-      <i class="fa-regular fa-user text-xl"></i><span class="text-[10px]">Profil</span>
+    <a href="profil.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-user text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Profil</span>
     </a>
   </nav>
 
