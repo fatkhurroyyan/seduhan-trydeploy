@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Pengiriman - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#6F4E37', secondary: '#D4A373', accent: '#E63946', background: '#FAFAF9', surface: '#FFFFFF', dark: '#2C2C2C' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR STICKY GLASSMORPHISM -->
+  <header id="navbar"
+    class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-3 lg:py-4">
+      <div class="flex items-center justify-between gap-4 lg:gap-8">
+
+        <!-- Logo & Text Seduhan -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group">
+          <a href="index.html"><img src="img/LOGO.svg" class="h-10"></a>
+          <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-xl"><img src="img/Seduhan.svg"
+              alt=""></a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-xl relative hidden md:block group">
+          <input type="text" placeholder="Cari seduhan favoritmu..."
+            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 group-hover:text-primary transition-colors"></i>
+        </div>
+
+        <!-- Mobile Search Icon (Placeholder) -->
+        <div class="md:hidden flex-1 flex justify-end pr-2">
+          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 lg:gap-5">
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-heart text-xl text-primary"></i>
+          </button>
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-message text-xl text-primary"></i>
+          </button>
+
+          <a href="keranjang.html"><button
+              class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center hidden lg:flex justify-center transition-colors group">
+              <i class="fa-solid fa-cart-shopping text-xl text-primary group-hover:text-primary transition-colors"></i>
+              <span id="cart-count"
+                class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-300">0</span>
+            </button></a>
+
+          <a href="notifikasi.html"><button
+              class="w-10 h-10 rounded-full hover:bg-gray-100 hidden lg:flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-bell text-xl text-primary"></i>
+            </button></a>
+
+
+          <div class="hidden lg:flex items-center gap-2 pl-4 border-l border-gray-200 cursor-pointer"
+            onclick="location.href='profil.html'">
+            <div class="text-right hidden xl:block">
+              <p class="text-xs font-bold text-dark">Belva Mischah</p>
+              <p class="text-[10px] text-gray-500">Member Gold</p>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+              class="w-9 h-9 rounded-full ring-2 ring-white shadow-sm" alt="User">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 py-3">
+      <nav class="flex text-xs text-gray-500">
+        <ol class="inline-flex items-center space-x-1">
+          <li><a href="index.html" class="hover:text-primary">Beranda</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+          <li class="text-primary font-medium">Opsi Pengiriman</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-5 lg:px-10 py-8 lg:py-12">
+
+    <h1 class="text-2xl lg:text-3xl font-bold text-dark mb-8 text-center">Informasi Pengiriman</h1>
+
+    <!-- TYPES OF SHIPPING -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <!-- Instant -->
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center"><i
+              class="fa-solid fa-motorcycle"></i></div>
+          <h3 class="font-bold text-lg">Instant</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-4">Pengiriman super cepat dalam kota. Cocok untuk makanan/minuman siap saji.
+        </p>
+        <ul class="text-xs text-gray-500 space-y-2">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Estimasi: 1 - 3 Jam</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Kurir: Gojek, Grab</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Maks Berat: 20kg</li>
+        </ul>
+      </div>
+
+      <!-- Same Day -->
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center"><i
+              class="fa-solid fa-stopwatch"></i></div>
+          <h3 class="font-bold text-lg">Same Day</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-4">Sampai di hari yang sama dengan biaya lebih hemat dari Instant.</p>
+        <ul class="text-xs text-gray-500 space-y-2">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Estimasi: 6 - 8 Jam</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Kurir: Gojek, Grab, AnterAja</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Batas Order: 14.00 WIB</li>
+        </ul>
+      </div>
+
+      <!-- Reguler -->
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-primary/10 text-primary rounded-full flex items-center justify-center"><i
+              class="fa-solid fa-truck"></i></div>
+          <h3 class="font-bold text-lg">Reguler</h3>
+        </div>
+        <p class="text-sm text-gray-600 mb-4">Pengiriman ke seluruh Indonesia dengan jangkauan terluas.</p>
+        <ul class="text-xs text-gray-500 space-y-2">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Estimasi: 2 - 5 Hari</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Kurir: JNE, J&T, SiCepat</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-primary"></i> Tersedia Kargo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PARTNER LOGOS -->
+    <div class="bg-white rounded-xl border border-gray-100 p-8 text-center">
+      <h3 class="font-bold text-dark mb-6">Partner Logistik Kami</h3>
+      <div
+        class="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNE.png" class="h-8 object-contain">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Logo_J%26T_Merah_Square.jpg"
+          class="h-8 object-contain">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Gojek_logo.svg/2560px-Gojek_logo.svg.png"
+          class="h-8 object-contain">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Grab_Logo.svg/1200px-Grab_Logo.svg.png"
+          class="h-8 object-contain">
+      </div>
+    </div>
+
+  </main>
+
+
+</body>
+
+</html>
