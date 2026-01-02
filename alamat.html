@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Alamat - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="img/LOGO.svg" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#F8F9FA' }, fontFamily: { sans: ['Nunito', 'sans-serif'] } } }
+    }
+  </script>
+
+  <style>
+    .address-gradient {
+      background: linear-gradient(135deg, #8A6240 0%, #D4A373 100%);
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR (DESKTOP) -->
+  <header class="hidden lg:block sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-10 py-4 flex items-center gap-4">
+      <a href="index.html"><img src="img/LOGO.svg" class="h-10"></a>
+      <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-xl"><img src="img/Seduhan.svg"
+          alt=""></a>
+      <div class="flex-1 max-w-xl mx-auto relative"><input type="text" placeholder="Cari..."
+          class="w-full bg-gray-100 pl-4 py-2 rounded-lg text-sm"></div>
+      <a href="profil.html" class="w-8 h-8 rounded-full overflow-hidden border border-gray-200"><img
+          src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff" class="w-full h-full"></a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (Desktop Only) -->
+  <div class="hidden lg:block bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-10 py-3">
+      <nav class="flex text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="index.html" class="hover:text-primary transition-colors">Beranda</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <span class="text-primary font-medium ml-3">Daftar Alamat</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-0 lg:px-10 py-0 lg:py-8 flex gap-8">
+
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-2 h-fit sticky top-24">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+        <div class="p-4 border-b border-gray-50 flex items-center gap-3">
+          <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+            class="w-10 h-10 rounded-full">
+          <div>
+            <h4 class="font-bold text-sm">Belva Mischah</h4>
+            <p class="text-xs text-gray-500">Member Gold</p>
+          </div>
+        </div>
+        <nav class="p-2">
+          <a href="profil.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-user w-5 text-center"></i> Akun Saya
+          </a>
+          <a href="alamat.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-primary bg-primary/5 rounded-lg transition-colors">
+            <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Alamat
+          </a>
+          <a href="pembayaran-metode.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-credit-card w-5 text-center"></i> Pembayaran
+          </a>
+          <a href="notifikasi.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-bell w-5 text-center"></i> Notifikasi
+          </a>
+          <a href="seduhan-wishlist.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+          </a>
+        </nav>
+      </div>
+      <div class="p-2">
+        <button
+          class="w-full flex items-center justify-center gap-2 border border-red-200 text-red-500 font-bold py-2.5 rounded-lg text-sm hover:bg-red-50 transition-colors bg-white"
+          onclick="location.href='register-login.html'">
+          <i class="fa-solid fa-right-from-bracket"></i> Keluar
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="flex-1 w-full lg:w-3/4 px-4 lg:px-0 py-8 lg:py-0">
+
+      <!-- HEADER -->
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h1 class="text-2xl lg:text-3xl font-bold text-dark">Daftar Alamat</h1>
+          <p class="text-sm text-gray-500 mt-1">Kelola alamat pengiriman Anda</p>
+        </div>
+        <button onclick="openAddressModal()"
+          class="bg-primary text-white font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-primary/90 transition-all flex items-center gap-2 shadow-md hover:shadow-lg">
+          <i class="fa-solid fa-plus"></i> Tambah Alamat
+        </button>
+      </div>
+
+      <!-- ADDRESS LIST -->
+      <div class="grid grid-cols-1 gap-4" id="address-list">
+
+        <!-- Address Card 1 (Main) -->
+        <div class="bg-white rounded-2xl border-2 border-primary shadow-sm p-6 relative group address-card">
+          <!-- Badge Utama -->
+          <div class="absolute top-4 right-4">
+            <span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">Alamat Utama</span>
+          </div>
+
+          <div class="pr-24">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mt-1">
+                <i class="fa-solid fa-home"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-dark text-lg">Rumah</h3>
+                <p class="text-sm text-gray-500 mt-1">Belva Mischah</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              Jl. Telekomunikasi No. 1, Terusan Buahbatu, Bojongsoang, Kab. Bandung, Jawa Barat 40257
+            </p>
+
+            <div class="flex items-center gap-6 text-sm text-gray-600">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-phone text-primary"></i>
+                <span>0812-3456-7890</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-primary"></i>
+                <span>belva@email.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="absolute bottom-4 right-4 flex gap-2">
+            <button onclick="editAddress(this)"
+              class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors flex items-center justify-center"
+              title="Edit">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="deleteAddress(this)"
+              class="w-10 h-10 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition-colors flex items-center justify-center"
+              title="Hapus">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Address Card 2 -->
+        <div
+          class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 relative group address-card hover:border-primary transition-all">
+
+          <div class="pr-24">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary mt-1">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-dark text-lg">Kantor</h3>
+                <p class="text-sm text-gray-500 mt-1">PT. Seduhan Indonesia</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              Jl. Sudirman No. 123, Menteng, Jakarta Pusat, DKI Jakarta 12190
+            </p>
+
+            <div class="flex items-center gap-6 text-sm text-gray-600">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-phone text-primary"></i>
+                <span>021-1234-5678</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-primary"></i>
+                <span>office@seduhan.id</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="absolute bottom-4 right-4 flex gap-2">
+            <button onclick="editAddress(this)"
+              class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors flex items-center justify-center"
+              title="Edit">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="deleteAddress(this)"
+              class="w-10 h-10 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition-colors flex items-center justify-center"
+              title="Hapus">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Address Card 3 -->
+        <div
+          class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 relative group address-card hover:border-primary transition-all">
+
+          <div class="pr-24">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600 mt-1">
+                <i class="fa-solid fa-map-pin"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-dark text-lg">Rumah Orang Tua</h3>
+                <p class="text-sm text-gray-500 mt-1">Bapak & Ibu Mischah</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              Jl. Mawar No. 45, Perumahan Bukit Indah, Surabaya, Jawa Timur 60281
+            </p>
+
+            <div class="flex items-center gap-6 text-sm text-gray-600">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-phone text-primary"></i>
+                <span>031-9876-5432</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-primary"></i>
+                <span>orang.tua@email.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="absolute bottom-4 right-4 flex gap-2">
+            <button onclick="editAddress(this)"
+              class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors flex items-center justify-center"
+              title="Edit">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="deleteAddress(this)"
+              class="w-10 h-10 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition-colors flex items-center justify-center"
+              title="Hapus">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ADD/EDIT ADDRESS MODAL -->
+  <div id="address-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+
+      <!-- Modal Header -->
+      <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+        <h2 class="text-xl font-bold text-dark" id="modal-title">Tambah Alamat Baru</h2>
+        <button onclick="closeAddressModal()" class="text-gray-500 hover:text-dark text-2xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Content -->
+      <div class="p-6 space-y-4">
+
+        <!-- Label -->
+        <div>
+          <label class="block text-sm font-medium text-dark mb-2">Label Alamat</label>
+          <input type="text" placeholder="Contoh: Rumah, Kantor, Rumah Orang Tua"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+            id="address-label">
+        </div>
+
+        <!-- Nama Penerima -->
+        <div>
+          <label class="block text-sm font-medium text-dark mb-2">Nama Penerima</label>
+          <input type="text" placeholder="Contoh: Belva Mischah"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+            id="recipient-name">
+        </div>
+
+        <!-- Nomor Telepon -->
+        <div>
+          <label class="block text-sm font-medium text-dark mb-2">Nomor Telepon</label>
+          <input type="tel" placeholder="Contoh: 0812-3456-7890"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+            id="phone-number">
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-dark mb-2">Email</label>
+          <input type="email" placeholder="Contoh: belva@email.com"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+            id="email-address">
+        </div>
+
+        <!-- Alamat Lengkap -->
+        <div>
+          <label class="block text-sm font-medium text-dark mb-2">Alamat Lengkap</label>
+          <textarea
+            placeholder="Jl. Telekomunikasi No. 1, Terusan Buahbatu, Bojongsoang, Kab. Bandung, Jawa Barat 40257"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
+            rows="3" id="full-address"></textarea>
+        </div>
+
+        <!-- Set as Main Address -->
+        <div class="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20">
+          <input type="checkbox" id="set-main-address" class="w-4 h-4 accent-primary rounded">
+          <label for="set-main-address" class="text-sm font-medium text-dark cursor-pointer flex-1">
+            Jadikan Alamat Utama
+          </label>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="border-t border-gray-200 px-6 py-4 flex gap-3 bg-gray-50">
+        <button onclick="closeAddressModal()"
+          class="flex-1 px-4 py-2 rounded-lg border border-gray-300 text-dark font-medium hover:bg-gray-100 transition-colors">
+          Batal
+        </button>
+        <button onclick="saveAddress()"
+          class="flex-1 px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors">
+          Simpan Alamat
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <nav
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50 pb-safe shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)]">
+    <a href="index.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-house text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Beranda</span>
+    </a>
+    <a href="kategori.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-clone text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Kategori</span>
+    </a>
+    <div class="relative -top-8 group">
+      <a href="keranjang.html"><button
+          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white transform hover:scale-110 active:scale-95 transition-all">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button></a>
+    </div>
+    <a href="notifikasi.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-bell text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Notifikasi</span>
+    </a>
+    <a href="profil.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-user text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Profil</span>
+    </a>
+  </nav>
+
+  <script>
+    function openAddressModal() {
+      document.getElementById('address-modal').classList.remove('hidden');
+      document.getElementById('modal-title').textContent = 'Tambah Alamat Baru';
+      clearAddressForm();
+    }
+
+    function closeAddressModal() {
+      document.getElementById('address-modal').classList.add('hidden');
+      clearAddressForm();
+    }
+
+    function clearAddressForm() {
+      document.getElementById('address-label').value = '';
+      document.getElementById('recipient-name').value = '';
+      document.getElementById('phone-number').value = '';
+      document.getElementById('email-address').value = '';
+      document.getElementById('full-address').value = '';
+      document.getElementById('set-main-address').checked = false;
+    }
+
+    function editAddress(button) {
+      const card = button.closest('.address-card');
+      const title = card.querySelector('h3').textContent;
+      const recipient = card.querySelector('p').textContent;
+      const address = card.querySelectorAll('p')[1].textContent;
+      const phone = card.querySelectorAll('span')[0].textContent;
+      const email = card.querySelectorAll('span')[1].textContent;
+      const isMain = card.classList.contains('border-primary');
+
+      document.getElementById('address-label').value = title;
+      document.getElementById('recipient-name').value = recipient;
+      document.getElementById('phone-number').value = phone;
+      document.getElementById('email-address').value = email;
+      document.getElementById('full-address').value = address;
+      document.getElementById('set-main-address').checked = isMain;
+
+      document.getElementById('modal-title').textContent = 'Edit Alamat';
+      document.getElementById('address-modal').classList.remove('hidden');
+    }
+
+    function deleteAddress(button) {
+      if (confirm('Apakah Anda yakin ingin menghapus alamat ini?')) {
+        button.closest('.address-card').remove();
+      }
+    }
+
+    function saveAddress() {
+      const label = document.getElementById('address-label').value.trim();
+      const recipient = document.getElementById('recipient-name').value.trim();
+      const phone = document.getElementById('phone-number').value.trim();
+      const email = document.getElementById('email-address').value.trim();
+      const address = document.getElementById('full-address').value.trim();
+      const isMain = document.getElementById('set-main-address').checked;
+
+      if (!label || !recipient || !phone || !email || !address) {
+        alert('Mohon isi semua field');
+        return;
+      }
+
+      // Remove border-primary from all cards if setting as main
+      if (isMain) {
+        document.querySelectorAll('.address-card').forEach(card => {
+          card.classList.remove('border-primary', 'border-2');
+          card.classList.add('border-gray-200', 'border');
+          card.querySelector('.bg-primary').parentElement.remove();
+        });
+      }
+
+      closeAddressModal();
+      alert('Alamat berhasil disimpan!');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('address-modal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeAddressModal();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
