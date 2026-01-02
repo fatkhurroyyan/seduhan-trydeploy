@@ -395,11 +395,17 @@
 
       if (input.type === "password") {
         input.type = "text";
-        icon.setAttribute('stroke', '#8A6240'); // Change color to active
+        // Ganti ikon dengan eye-off (mata dengan garis coret)
+        icon.setAttribute('data-lucide', 'eye-off');
+        icon.classList.add('eye-crossed');
       } else {
         input.type = "password";
-        icon.setAttribute('stroke', 'currentColor');
+        // Kembali ke ikon eye (mata sempurna)
+        icon.setAttribute('data-lucide', 'eye');
+        icon.classList.remove('eye-crossed');
       }
+      // Render ulang icon Lucide
+      lucide.createIcons();
     }
 
     // --- FORM VALIDATION: LOGIN ---

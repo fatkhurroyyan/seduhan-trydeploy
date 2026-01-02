@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beri Ulasan - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/3f57075609.js" crossorigin="anonymous"></script>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="img/LOGO.svg" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#F8F9FA' }, fontFamily: { sans: ['Nunito', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR (DESKTOP) -->
+  <header class="hidden lg:block sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-10 py-4 flex items-center gap-4">
+      <a href="index.html"><img src="img/LOGO.svg" class="h-10"></a>
+      <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-xl"><img src="img/Seduhan.svg"
+          alt=""></a>
+      <div class="flex-1 max-w-xl mx-auto relative"><input type="text" placeholder="Cari..."
+          class="w-full bg-gray-100 pl-4 py-2 rounded-lg text-sm"></div>
+      <a href="profil.html" class="w-8 h-8 rounded-full overflow-hidden border border-gray-200"><img
+          src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff" class="w-full h-full"></a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (Desktop Only) -->
+  <div class="hidden lg:block bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-10 py-3">
+      <nav class="flex text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="index.html" class="hover:text-primary transition-colors">Beranda</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <a href="profil.html" class="hover:text-primary transition-colors">Akun Saya</a>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <span class="text-primary font-medium ml-3">Beri Ulasan</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-10 py-8 flex gap-8">
+
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-2 h-fit sticky top-24">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+        <div class="p-4 border-b border-gray-50 flex items-center gap-3">
+          <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+            class="w-10 h-10 rounded-full">
+          <div>
+            <h4 class="font-bold text-sm">Belva Mischah</h4>
+            <p class="text-xs text-gray-500">Member Gold</p>
+          </div>
+        </div>
+        <nav class="p-2">
+          <a href="profil.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-user w-5 text-center"></i> Akun Saya
+          </a>
+          <a href="alamat.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Alamat
+          </a>
+          <a href="pembayaran-metode.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-credit-card w-5 text-center"></i> Pembayaran
+          </a>
+          <a href="notifikasi.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-bell w-5 text-center"></i> Notifikasi
+          </a>
+          <a href="seduhan-wishlist.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+          </a>
+        </nav>
+      </div>
+      <div class="p-2">
+        <button
+          class="w-full flex items-center justify-center gap-2 border border-red-200 text-red-500 font-bold py-2.5 rounded-lg text-sm hover:bg-red-50 transition-colors bg-white"
+          onclick="location.href='register-login.html'">
+          <i class="fa-solid fa-right-from-bracket"></i> Keluar
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="flex-1 w-full lg:w-3/4">
+      <!-- EMPTY STATE -->
+      <div
+        class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 lg:p-12 flex flex-col items-center justify-center min-h-[500px] text-center">
+        <div class="mb-6">
+          <div
+            class="w-24 h-24 lg:w-32 lg:h-32 mx-auto bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-full flex items-center justify-center mb-4">
+            <i class="fa-solid fa-star text-5xl lg:text-6xl text-yellow-500"></i>
+          </div>
+        </div>
+
+        <h2 class="text-2xl lg:text-3xl font-bold text-dark mb-3">Belum Ada Ulasan</h2>
+        <p class="text-gray-500 text-sm lg:text-base mb-2 max-w-md">
+          Belum ada produk yang siap untuk diberikan ulasan. Tunggu pesanan kamu selesai dan tiba dengan sempurna! ⭐
+        </p>
+        <p class="text-gray-400 text-xs lg:text-sm mb-8 max-w-md">
+          Ulasan kamu sangat berarti untuk membantu kami memberikan layanan yang lebih baik lagi.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button onclick="location.href='kategori.html'"
+            class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-all shadow-md hover:shadow-lg">
+            <i class="fa-solid fa-coffee mr-2"></i> Mulai Berbelanja
+          </button>
+          <button onclick="location.href='profil.html'"
+            class="border border-primary text-primary font-bold py-3 px-8 rounded-lg hover:bg-primary/5 transition-all">
+            <i class="fa-solid fa-chevron-left mr-2"></i> Kembali
+          </button>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100 w-full">
+          <p class="text-gray-400 text-xs mb-4">Pelajari lebih lanjut tentang program kami</p>
+          <div class="flex gap-4 justify-center flex-wrap justify-center">
+            <a href="seduhan-blog.html"
+              class="text-primary hover:text-primary/80 transition-colors text-sm font-medium">
+              <i class="fa-solid fa-newspaper mr-1"></i> Blog Kami
+            </a>
+            <span class="text-gray-300">•</span>
+            <a href="seduhan-contact.html"
+              class="text-primary hover:text-primary/80 transition-colors text-sm font-medium">
+              <i class="fa-solid fa-headset mr-1"></i> Hubungi Kami
+            </a>
+            <span class="text-gray-300">•</span>
+            <a href="bantuan.html" class="text-primary hover:text-primary/80 transition-colors text-sm font-medium">
+              <i class="fa-solid fa-circle-question mr-1"></i> Bantuan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50 pb-safe shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)]">
+    <a href="index.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-house text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Beranda</span>
+    </a>
+    <a href="kategori.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-clone text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Kategori</span>
+    </a>
+    <div class="relative -top-8 group">
+      <a href="keranjang.html"><button
+          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white transform hover:scale-110 active:scale-95 transition-all">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button></a>
+    </div>
+    <a href="notifikasi.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-bell text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Notifikasi</span>
+    </a>
+    <a href="profil.html" class="flex flex-col items-center gap-1 text-primary group">
+      <i class="fa-solid fa-user text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Profil</span>
+    </a>
+  </nav>
+
+</body>
+
+</html>
