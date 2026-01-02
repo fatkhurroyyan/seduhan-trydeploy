@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#FAFAF9', surface: '#FFFFFF', dark: '#2C2C2C' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    .chat-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .chat-scroll::-webkit-scrollbar-thumb {
+      background: #D4A373;
+      border-radius: 4px;
+    }
+
+    .bg-pattern {
+      background-color: #f8f9fa;
+      background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark overflow-hidden flex flex-col">
+
+  <!-- NAVBAR STICKY GLASSMORPHISM -->
+  <header id="navbar"
+    class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-3 lg:py-4">
+      <div class="flex items-center justify-between gap-4 lg:gap-8">
+
+        <!-- Logo & Text Seduhan -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group">
+          <img src="img/LOGO.svg" class="h-8 lg:h-12">
+          <!-- Tulisan Seduhan (Visible) -->
+          <img src="img/Seduhan.svg" class="hidden lg:flex">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-xl relative hidden md:block group">
+          <input type="text" placeholder="Cari seduhan favoritmu..."
+            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 group-hover:text-primary transition-colors"></i>
+        </div>
+
+        <!-- Mobile Search Icon (Placeholder) -->
+        <div class="md:hidden flex-1 flex justify-end pr-2">
+          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 lg:gap-5">
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-heart text-xl text-primary"></i>
+          </button>
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-message text-xl text-primary"></i>
+          </button>
+
+          <a href="keranjang.html"><button
+              class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center hidden lg:flex justify-center transition-colors group">
+              <i class="fa-solid fa-cart-shopping text-xl text-primary group-hover:text-primary transition-colors"></i>
+              <span id="cart-count"
+                class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-300">0</span>
+            </button></a>
+
+          <a href="notifikasi.html"><button
+              class="w-10 h-10 rounded-full hover:bg-gray-100 hidden lg:flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-bell text-xl text-primary"></i>
+            </button></a>
+
+
+          <div class="hidden lg:flex items-center gap-2 pl-4 border-l border-gray-200 cursor-pointer"
+            onclick="location.href='profil.html'">
+            <div class="text-right hidden xl:block">
+              <p class="text-xs font-bold text-dark">Belva Mischah</p>
+              <p class="text-[10px] text-gray-500">Member Gold</p>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+              class="w-9 h-9 rounded-full ring-2 ring-white shadow-sm" alt="User">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (Desktop Only) -->
+  <div class="hidden lg:block bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-10 py-3">
+      <nav class="flex text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="index.html" class="hover:text-primary transition-colors">Beranda</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <span class="text-primary font-medium ml-3">Notifikasi</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+
+  <main class="flex-1 max-w-7xl w-full mx-auto flex overflow-hidden h-[calc(100vh-60px)]">
+
+    <!-- CHAT LIST (Sidebar) -->
+    <aside class="w-full lg:w-80 bg-white border-r border-gray-100 flex flex-col shrink-0" id="chat-list">
+      <!-- Search -->
+      <div class="p-4 border-b border-gray-100">
+        <div class="relative">
+          <input type="text" placeholder="Cari percakapan..."
+            class="w-full bg-gray-50 pl-9 pr-4 py-2 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-primary">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+        </div>
+      </div>
+
+      <!-- List -->
+      <div class="flex-1 overflow-y-auto chat-scroll">
+
+        <!-- Item 1 (Active) -->
+        <div class="p-4 flex gap-3 hover:bg-gray-50 cursor-pointer border-l-4 border-primary bg-primary/5 active-chat"
+          onclick="openChat(1)">
+          <div class="relative shrink-0">
+            <img src="https://ui-avatars.com/api/?name=Otten+Coffee&background=random"
+              class="w-12 h-12 rounded-full border border-gray-200">
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-start mb-1">
+              <h4 class="font-bold text-sm text-dark truncate">Otten Coffee</h4>
+              <span class="text-[10px] text-gray-400">10:45</span>
+            </div>
+            <p class="text-xs text-gray-600 truncate font-medium last-msg">Baik kak, pesanan segera kami proses ya...
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="p-4 flex gap-3 hover:bg-gray-50 cursor-pointer border-l-4 border-transparent" onclick="openChat(2)">
+          <div class="relative shrink-0">
+            <img src="https://ui-avatars.com/api/?name=Space+Roastery&background=random"
+              class="w-12 h-12 rounded-full border border-gray-200">
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-start mb-1">
+              <h4 class="font-bold text-sm text-dark truncate">Space Roastery</h4>
+              <span class="text-[10px] text-gray-400">Kemarin</span>
+            </div>
+            <p class="text-xs text-gray-500 truncate last-msg">Untuk varian Full Wash ready stok kak, sil...</p>
+          </div>
+          <div class="flex flex-col items-end justify-center gap-1">
+            <span
+              class="bg-accent text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[20px] text-center">2</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="p-4 flex gap-3 hover:bg-gray-50 cursor-pointer border-l-4 border-transparent" onclick="openChat(3)">
+          <div class="relative shrink-0">
+            <img src="https://ui-avatars.com/api/?name=Java+Preanger&background=random"
+              class="w-12 h-12 rounded-full border border-gray-200">
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-start mb-1">
+              <h4 class="font-bold text-sm text-dark truncate">Java Preanger</h4>
+              <span class="text-[10px] text-gray-400">2 Jan</span>
+            </div>
+            <p class="text-xs text-gray-500 truncate last-msg">Terima kasih sudah berbelanja!</p>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- CHAT ROOM (Main) -->
+    <section class="hidden lg:flex flex-1 flex-col bg-gray-50/50 w-full relative" id="chat-room">
+
+      <!-- Header -->
+      <div
+        class="p-3 lg:p-4 bg-white border-b border-gray-100 flex items-center justify-between shrink-0 shadow-sm z-10">
+        <div class="flex items-center gap-3">
+          <button class="lg:hidden text-gray-500 mr-2" onclick="closeChatMobile()"><i
+              class="fa-solid fa-arrow-left"></i></button>
+          <img src="https://ui-avatars.com/api/?name=Otten+Coffee&background=random"
+            class="w-10 h-10 rounded-full border border-gray-200">
+          <div>
+            <h4 class="font-bold text-sm text-dark flex items-center gap-1">Otten Coffee <i
+                class="fa-solid fa-circle-check text-blue-500 text-xs"></i></h4>
+            <p class="text-[10px] text-green-600 flex items-center gap-1"><span
+                class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Online</p>
+          </div>
+        </div>
+        <button class="text-gray-400 hover:text-primary p-2 rounded-full hover:bg-gray-50 transition-colors"><i
+            class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <!-- Messages Container -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 chat-scroll bg-pattern" id="messages-container">
+
+        <!-- Date Divider -->
+        <div class="text-center my-2"><span
+            class="bg-gray-200/80 backdrop-blur text-gray-600 text-[10px] px-3 py-1 rounded-full shadow-sm">Hari
+            Ini</span></div>
+
+        <!-- Bubble Left -->
+        <div class="flex gap-3 max-w-[85%]">
+          <img src="https://ui-avatars.com/api/?name=Otten+Coffee&background=random"
+            class="w-8 h-8 rounded-full border border-gray-200 self-end mb-1">
+          <div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm border border-gray-100">
+            <p class="text-sm text-dark">Halo kak, ada yang bisa kami bantu? 😊</p>
+            <span class="text-[10px] text-gray-400 block text-right mt-1">10:30</span>
+          </div>
+        </div>
+
+        <!-- Bubble Right -->
+        <div class="flex gap-3 max-w-[85%] ml-auto flex-row-reverse">
+          <div class="bg-primary text-white p-3 rounded-2xl rounded-br-none shadow-sm shadow-primary/20">
+            <p class="text-sm">Siang min, untuk Gayo Wine ini roasting profilenya apa ya? Medium atau Light?</p>
+            <span class="text-[10px] text-white/70 block text-right mt-1 flex items-center justify-end gap-1">10:32 <i
+                class="fa-solid fa-check-double text-[10px]"></i></span>
+          </div>
+        </div>
+
+        <!-- Bubble Left -->
+        <div class="flex gap-3 max-w-[85%]">
+          <img src="https://ui-avatars.com/api/?name=Otten+Coffee&background=random"
+            class="w-8 h-8 rounded-full border border-gray-200 self-end mb-1">
+          <div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm border border-gray-100">
+            <p class="text-sm text-dark">Untuk Gayo Wine kita pakai profile <strong>Light to Medium</strong> kak, jadi
+              rasa fruity-nya lebih nonjol. Cocok banget buat V60. 👍</p>
+            <span class="text-[10px] text-gray-400 block text-right mt-1">10:35</span>
+          </div>
+        </div>
+
+        <!-- Bubble Right -->
+        <div class="flex gap-3 max-w-[85%] ml-auto flex-row-reverse">
+          <div class="bg-primary text-white p-3 rounded-2xl rounded-br-none shadow-sm shadow-primary/20">
+            <p class="text-sm">Oke siap, saya checkout sekarang ya min.</p>
+            <span class="text-[10px] text-white/70 block text-right mt-1 flex items-center justify-end gap-1">10:40 <i
+                class="fa-solid fa-check-double text-[10px]"></i></span>
+          </div>
+        </div>
+
+        <!-- Bubble Left -->
+        <div class="flex gap-3 max-w-[85%]">
+          <img src="https://ui-avatars.com/api/?name=Otten+Coffee&background=random"
+            class="w-8 h-8 rounded-full border border-gray-200 self-end mb-1">
+          <div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm border border-gray-100">
+            <p class="text-sm text-dark">Baik kak, pesanan segera kami proses ya. Terima kasih! 🙏</p>
+            <span class="text-[10px] text-gray-400 block text-right mt-1">10:45</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Input Area -->
+      <div class="p-3 bg-white border-t border-gray-100 flex gap-2 items-end shrink-0">
+        <button
+          class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-primary rounded-full hover:bg-gray-50 transition-colors"><i
+            class="fa-solid fa-paperclip"></i></button>
+        <div
+          class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl flex items-center px-4 py-2 focus-within:ring-1 focus-within:ring-primary focus-within:bg-white transition-colors">
+          <textarea id="msg-input" rows="1"
+            class="w-full bg-transparent border-none text-sm focus:outline-none resize-none max-h-32"
+            placeholder="Tulis pesan..." onkeydown="handleEnter(event)"></textarea>
+          <button class="ml-2 text-gray-400 hover:text-primary"><i class="fa-regular fa-face-smile"></i></button>
+        </div>
+        <button onclick="sendMessage()"
+          class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 transform active:scale-95"><i
+            class="fa-solid fa-paper-plane text-sm"></i></button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    // 1. Mobile Chat Navigation Logic
+    const chatList = document.getElementById('chat-list');
+    const chatRoom = document.getElementById('chat-room');
+
+    function openChat(id) {
+      // Highlight Active Chat (Visual only for list)
+      document.querySelectorAll('#chat-list > div > div').forEach(el => {
+        el.classList.remove('border-primary', 'bg-primary/5');
+        el.classList.add('border-transparent');
+      });
+      // In real app, toggle class on specific ID element
+
+      if (window.innerWidth < 1024) {
+        chatList.classList.add('hidden');
+        chatRoom.classList.remove('hidden');
+        chatRoom.classList.add('flex');
+      }
+    }
+
+    function closeChatMobile() {
+      chatRoom.classList.add('hidden');
+      chatRoom.classList.remove('flex');
+      chatList.classList.remove('hidden');
+    }
+
+    // Handle Resize Responsiveness
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        chatList.classList.remove('hidden');
+        chatRoom.classList.remove('hidden');
+        chatRoom.classList.add('flex');
+      } else {
+        if (!chatRoom.classList.contains('flex')) {
+          chatRoom.classList.add('hidden');
+        }
+      }
+    });
+
+    // 2. Send Message Logic
+    function sendMessage() {
+      const input = document.getElementById('msg-input');
+      const message = input.value.trim();
+      const container = document.getElementById('messages-container');
+
+      if (message) {
+        // Create Bubble HTML
+        const bubbleHTML = `
+                  <div class="flex gap-3 max-w-[85%] ml-auto flex-row-reverse animate-fade-in-up">
+                      <div class="bg-primary text-white p-3 rounded-2xl rounded-br-none shadow-sm shadow-primary/20">
+                          <p class="text-sm">${escapeHtml(message)}</p>
+                          <span class="text-[10px] text-white/70 block text-right mt-1 flex items-center justify-end gap-1">Baru saja <i class="fa-solid fa-check text-[10px]"></i></span>
+                      </div>
+                  </div>
+              `;
+
+        // Append and Scroll
+        container.insertAdjacentHTML('beforeend', bubbleHTML);
+        container.scrollTop = container.scrollHeight;
+
+        // Reset Input
+        input.value = '';
+        input.rows = 1;
+      }
+    }
+
+    function handleEnter(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+      // Auto resize logic (optional simple version)
+      e.target.rows = Math.min(5, e.target.value.split('\n').length + 1);
+    }
+
+    // Helper to prevent XSS
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.3s ease-out forwards;
+    }
+  </style>
+
+</body>
+
+</html>

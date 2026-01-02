@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#FAFAF9', surface: '#FFFFFF', dark: '#2C2C2C' }, fontFamily: { sans: ['Nunito', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    .fade-out {
+      animation: fadeOut 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR STICKY GLASSMORPHISM -->
+  <header id="navbar"
+    class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-3 lg:py-4">
+      <div class="flex items-center justify-between gap-4 lg:gap-8">
+
+        <!-- Logo & Text Seduhan -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group">
+          <img src="img/LOGO.svg" class="h-8 lg:h-12">
+          <!-- Tulisan Seduhan (Visible) -->
+          <img src="img/Seduhan.svg" class="hidden lg:flex">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-xl relative hidden md:block group">
+          <input type="text" placeholder="Cari seduhan favoritmu..."
+            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 group-hover:text-primary transition-colors"></i>
+        </div>
+
+        <!-- Mobile Search Icon (Placeholder) -->
+        <div class="md:hidden flex-1 flex justify-end pr-2">
+          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 lg:gap-5">
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-heart text-xl text-primary"></i>
+          </button>
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-message text-xl text-primary"></i>
+          </button>
+
+          <a href="keranjang.html"><button
+              class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center hidden lg:flex justify-center transition-colors group">
+              <i class="fa-solid fa-cart-shopping text-xl text-primary group-hover:text-primary transition-colors"></i>
+              <span id="cart-count"
+                class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-300">0</span>
+            </button></a>
+
+          <a href="notifikasi.html"><button
+              class="w-10 h-10 rounded-full hover:bg-gray-100 hidden lg:flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-bell text-xl text-primary"></i>
+            </button></a>
+
+
+          <div class="hidden lg:flex items-center gap-2 pl-4 border-l border-gray-200 cursor-pointer"
+            onclick="location.href='profil.html'">
+            <div class="text-right hidden xl:block">
+              <p class="text-xs font-bold text-dark">Belva Mischah</p>
+              <p class="text-[10px] text-gray-500">Member Gold</p>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+              class="w-9 h-9 rounded-full ring-2 ring-white shadow-sm" alt="User">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (Desktop Only) -->
+  <div class="hidden lg:block bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-10 py-3">
+      <nav class="flex text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="index.html" class="hover:text-primary transition-colors">Beranda</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <span class="text-primary font-medium ml-3">Notifikasi</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+
+  <main class="max-w-7xl mx-auto px-5 lg:px-10 py-8 lg:py-12">
+
+    <h1 class="text-2xl lg:text-3xl font-bold text-dark mb-8">Wishlist Saya <span
+        class="text-sm font-normal text-gray-500 ml-2" id="wishlist-count">(4 Item)</span></h1>
+
+    <!-- EMPTY STATE (Hidden by default) -->
+    <div id="empty-state" class="hidden flex flex-col items-center justify-center py-20 text-center">
+      <div class="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-gray-300">
+        <i class="fa-solid fa-heart-crack text-5xl"></i>
+      </div>
+      <h3 class="font-bold text-xl text-dark mb-2">Wishlist Masih Kosong</h3>
+      <p class="text-gray-500 mb-6">Yuk, cari produk favoritmu dan simpan di sini!</p>
+      <a href="index.html"
+        class="bg-primary text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-primary/90 transition-all">Mulai
+        Belanja</a>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-6" id="wishlist-grid">
+
+      <!-- Item 1 -->
+      <div
+        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+        <div class="relative h-48 bg-gray-100 overflow-hidden">
+          <img src="img/produk/Picture1.jpg"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <button onclick="removeFromWishlist(this)"
+            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10"
+            title="Hapus dari Wishlist">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-3">
+          <div class="text-[10px] text-gray-400 uppercase mb-1">Biji Kopi</div>
+          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Arabika Gayo Wine 200g
+          </h4>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">Rp 65.000</span>
+            <button
+              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div
+        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+        <div class="relative h-48 bg-gray-100 overflow-hidden">
+          <img src="img/produk/Picture2.jpg"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <button onclick="removeFromWishlist(this)"
+            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-3">
+          <div class="text-[10px] text-gray-400 uppercase mb-1">Alat Seduh</div>
+          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">V60 Dripper Ceramic Red
+            01</h4>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">Rp 85.000</span>
+            <button
+              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div
+        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+        <div class="relative h-48 bg-gray-100 overflow-hidden">
+          <img src="img/produk/Picture3.jpg"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <button onclick="removeFromWishlist(this)"
+            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-3">
+          <div class="text-[10px] text-gray-400 uppercase mb-1">Snack</div>
+          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Croissant Almond Butter
+            Premium</h4>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">Rp 22.000</span>
+            <button
+              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div
+        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+        <div class="relative h-48 bg-gray-100 overflow-hidden">
+          <img src="img/produk/Picture4.jpg"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <button onclick="removeFromWishlist(this)"
+            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-3">
+          <div class="text-[10px] text-gray-400 uppercase mb-1">Alat Seduh</div>
+          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Vietnam Drip Stainless
+            Steel</h4>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-primary">Rp 45.000</span>
+            <button
+              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+  <script>
+    function removeFromWishlist(btn) {
+      const item = btn.closest('.wishlist-item');
+
+      // 1. Animasi menghilang
+      item.classList.add('fade-out');
+
+      // 2. Hapus elemen setelah animasi selesai (300ms)
+      setTimeout(() => {
+        item.remove();
+        updateCount();
+      }, 300);
+    }
+
+    function updateCount() {
+      const items = document.querySelectorAll('.wishlist-item');
+      const countEl = document.getElementById('wishlist-count');
+      const grid = document.getElementById('wishlist-grid');
+      const emptyState = document.getElementById('empty-state');
+
+      // Update teks jumlah
+      countEl.innerText = `(${items.length} Item)`;
+
+      // Cek apakah kosong
+      if (items.length === 0) {
+        grid.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+      }
+    }
+  </script>
+
+</body>
+
+</html>
