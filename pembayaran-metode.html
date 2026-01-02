@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metode Pembayaran - Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="img/LOGO.svg" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#8A6240', secondary: '#D4A373', accent: '#E63946', background: '#F8F9FA' }, fontFamily: { sans: ['Nunito', 'sans-serif'] } } }
+    }
+  </script>
+
+  <style>
+    .payment-gradient {
+      background: linear-gradient(135deg, #8A6240 0%, #D4A373 100%);
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR (DESKTOP) -->
+  <header class="hidden lg:block sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-10 py-4 flex items-center gap-4">
+      <a href="index.html"><img src="img/LOGO.svg" class="h-10"></a>
+      <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-xl"><img src="img/Seduhan.svg"
+          alt=""></a>
+      <div class="flex-1 max-w-xl mx-auto relative"><input type="text" placeholder="Cari..."
+          class="w-full bg-gray-100 pl-4 py-2 rounded-lg text-sm"></div>
+      <a href="profil.html" class="w-8 h-8 rounded-full overflow-hidden border border-gray-200"><img
+          src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff" class="w-full h-full"></a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB (Desktop Only) -->
+  <div class="hidden lg:block bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-10 py-3">
+      <nav class="flex text-xs text-gray-500" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="index.html" class="hover:text-primary transition-colors">Beranda</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <i class="fa-solid fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+              <span class="text-primary font-medium ml-3">Metode Pembayaran</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-0 lg:px-10 py-0 lg:py-8 flex gap-8">
+
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-2 h-fit sticky top-24">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+        <div class="p-4 border-b border-gray-50 flex items-center gap-3">
+          <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+            class="w-10 h-10 rounded-full">
+          <div>
+            <h4 class="font-bold text-sm">Belva Mischah</h4>
+            <p class="text-xs text-gray-500">Member Gold</p>
+          </div>
+        </div>
+        <nav class="p-2">
+          <a href="profil.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-user w-5 text-center"></i> Akun Saya
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Alamat
+          </a>
+          <a href="pembayaran-metode.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-primary bg-primary/5 rounded-lg transition-colors">
+            <i class="fa-solid fa-credit-card w-5 text-center"></i> Pembayaran
+          </a>
+          <a href="notifikasi.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-bell w-5 text-center"></i> Notifikasi
+          </a>
+          <a href="seduhan-wishlist.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+          </a>
+        </nav>
+      </div>
+      <div class="p-2">
+        <button
+          class="w-full flex items-center justify-center gap-2 border border-red-200 text-red-500 font-bold py-2.5 rounded-lg text-sm hover:bg-red-50 transition-colors bg-white"
+          onclick="location.href='register-login.html'">
+          <i class="fa-solid fa-right-from-bracket"></i> Keluar
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="flex-1 w-full lg:w-3/4 px-4 lg:px-0 py-8 lg:py-0">
+
+      <h1 class="text-2xl lg:text-3xl font-bold text-dark mb-8">Metode Pembayaran</h1>
+
+      <!-- QRIS PAYMENT METHOD -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <!-- Header -->
+        <div class="payment-gradient p-6 lg:p-8 text-white">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-qrcode text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="text-xl lg:text-2xl font-bold">QRIS</h2>
+              <p class="text-sm text-white/80">Quick Response Code Indonesian Standard</p>
+            </div>
+          </div>
+          <p class="text-sm text-white/90">Scan kode QR dengan aplikasi perbankan atau e-wallet Anda untuk melakukan
+            pembayaran dengan mudah dan aman.</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 lg:p-8">
+          <!-- QR Code Section -->
+          <div class="mb-8">
+            <h3 class="font-bold text-lg text-dark mb-6">Cara Membayar dengan QRIS:</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <!-- Left: QR Code -->
+              <div class="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-200">
+                <p class="text-sm text-gray-600 mb-4">Scan QR Code Ini</p>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Seduhan-Payment-QRIS-2025"
+                    alt="QRIS Payment" class="w-48 h-48">
+                </div>
+                <p class="text-[10px] text-gray-400 mt-4 text-center">ID Merchant: SEDUHAN001</p>
+              </div>
+
+              <!-- Right: Steps -->
+              <div class="space-y-4">
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold">
+                      1
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-dark">Buka Aplikasi Perbankan</h4>
+                    <p class="text-sm text-gray-600">Buka aplikasi e-wallet atau mobile banking Anda (GCash, GoPay, OVO,
+                      dll)</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold">
+                      2
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-dark">Pilih Menu Scan QR</h4>
+                    <p class="text-sm text-gray-600">Cari menu "Scan QR Code" atau "Pay with QR" di aplikasi Anda</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold">
+                      3
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-dark">Arahkan ke QR Code</h4>
+                    <p class="text-sm text-gray-600">Arahkan kamera ke QR code di sebelah untuk memindai</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white font-bold">
+                      4
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-dark">Konfirmasi Pembayaran</h4>
+                    <p class="text-sm text-gray-600">Masukkan PIN atau autentikasi sesuai petunjuk aplikasi Anda</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-success text-white font-bold">
+                      ✓
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-dark">Selesai!</h4>
+                    <p class="text-sm text-gray-600">Pembayaran berhasil dan Anda akan menerima notifikasi</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefits -->
+          <div class="border-t border-gray-200 pt-8">
+            <h3 class="font-bold text-lg text-dark mb-6">Keuntungan Pembayaran QRIS:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all">
+                <div class="text-3xl mb-3 text-primary">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <h4 class="font-bold text-dark mb-2">Aman</h4>
+                <p class="text-sm text-gray-600">Enkripsi tingkat bank dan perlindungan data terjamin</p>
+              </div>
+
+              <div class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all">
+                <div class="text-3xl mb-3 text-primary">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h4 class="font-bold text-dark mb-2">Cepat</h4>
+                <p class="text-sm text-gray-600">Proses pembayaran instan tanpa perlu mengisi data</p>
+              </div>
+
+              <div class="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all">
+                <div class="text-3xl mb-3 text-primary">
+                  <i class="fa-solid fa-mobile"></i>
+                </div>
+                <h4 class="font-bold text-dark mb-2">Mudah</h4>
+                <p class="text-sm text-gray-600">Tersedia di semua bank dan e-wallet populer</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Supported Apps -->
+          <div class="border-t border-gray-200 pt-8 mt-8">
+            <h3 class="font-bold text-lg text-dark mb-6">Aplikasi yang Didukung:</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-2xl">
+                  <i class="fa-brands fa-btc"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">GCash</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-wallet"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">GoPay</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-wallet"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">OVO</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-wallet"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">DANA</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-university"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">BRI</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-university"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">BCA</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-university"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">Mandiri</span>
+              </div>
+
+              <div
+                class="p-4 rounded-lg border border-gray-200 flex flex-col items-center gap-3 hover:border-primary transition-all">
+                <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-2xl">
+                  <i class="fa-solid fa-wallet"></i>
+                </div>
+                <span class="font-medium text-sm text-dark">LinkAja</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-8">
+        <h3 class="font-bold text-lg text-dark mb-6">Pertanyaan Umum</h3>
+        <div class="space-y-4">
+          <details class="group border border-gray-200 rounded-lg p-4 hover:border-primary transition-all">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-dark">
+              Apakah pembayaran QRIS aman?
+              <span class="transform group-open:rotate-180 transition-transform">
+                <i class="fa-solid fa-chevron-down text-gray-400"></i>
+              </span>
+            </summary>
+            <p class="text-sm text-gray-600 mt-4">Ya, QRIS menggunakan enkripsi tingkat bank dan semua transaksi
+              dilindungi oleh sistem keamanan berlapis. Anda tidak perlu khawatir tentang keamanan data pribadi Anda.
+            </p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-4 hover:border-primary transition-all">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-dark">
+              Berapa lama proses verifikasi pembayaran?
+              <span class="transform group-open:rotate-180 transition-transform">
+                <i class="fa-solid fa-chevron-down text-gray-400"></i>
+              </span>
+            </summary>
+            <p class="text-sm text-gray-600 mt-4">Pembayaran melalui QRIS biasanya diverifikasi dalam hitungan detik
+              hingga beberapa menit. Anda akan menerima notifikasi konfirmasi segera setelah pembayaran berhasil.</p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-4 hover:border-primary transition-all">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-dark">
+              Apa yang harus saya lakukan jika pembayaran gagal?
+              <span class="transform group-open:rotate-180 transition-transform">
+                <i class="fa-solid fa-chevron-down text-gray-400"></i>
+              </span>
+            </summary>
+            <p class="text-sm text-gray-600 mt-4">Jika pembayaran gagal, uang Anda akan dikembalikan ke akun Anda dalam
+              1-3 hari kerja. Anda dapat mencoba lagi atau menghubungi customer service kami untuk bantuan lebih lanjut.
+            </p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-4 hover:border-primary transition-all">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-dark">
+              Apakah ada biaya tambahan untuk pembayaran QRIS?
+              <span class="transform group-open:rotate-180 transition-transform">
+                <i class="fa-solid fa-chevron-down text-gray-400"></i>
+              </span>
+            </summary>
+            <p class="text-sm text-gray-600 mt-4">Tidak, kami tidak mengenakan biaya tambahan untuk pembayaran melalui
+              QRIS. Biaya yang Anda lihat di checkout adalah harga akhir yang sebenarnya.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50 pb-safe shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)]">
+    <a href="index.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-house text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Beranda</span>
+    </a>
+    <a href="kategori.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-clone text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Kategori</span>
+    </a>
+    <div class="relative -top-8 group">
+      <a href="keranjang.html"><button
+          class="w-14 h-14 rounded-full bg-primary text-white shadow-glow flex items-center justify-center text-xl border-4 border-white transform hover:scale-110 active:scale-95 transition-all">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button></a>
+    </div>
+    <a href="notifikasi.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-bell text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Notifikasi</span>
+    </a>
+    <a href="profil.html"
+      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
+      <i class="fa-regular fa-user text-xl group-hover:-translate-y-1 transition-transform"></i>
+      <span class="text-[10px] font-medium">Profil</span>
+    </a>
+  </nav>
+
+</body>
+
+</html>

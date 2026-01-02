@@ -119,128 +119,174 @@
   </div>
 
 
-  <main class="max-w-7xl mx-auto px-5 lg:px-10 py-8 lg:py-12">
+  <main class="max-w-7xl mx-auto px-0 lg:px-10 py-0 lg:py-8 flex gap-8">
 
-    <h1 class="text-2xl lg:text-3xl font-bold text-dark mb-8">Wishlist Saya <span
-        class="text-sm font-normal text-gray-500 ml-2" id="wishlist-count">(4 Item)</span></h1>
-
-    <!-- EMPTY STATE (Hidden by default) -->
-    <div id="empty-state" class="hidden flex flex-col items-center justify-center py-20 text-center">
-      <div class="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-gray-300">
-        <i class="fa-solid fa-heart-crack text-5xl"></i>
-      </div>
-      <h3 class="font-bold text-xl text-dark mb-2">Wishlist Masih Kosong</h3>
-      <p class="text-gray-500 mb-6">Yuk, cari produk favoritmu dan simpan di sini!</p>
-      <a href="index.html"
-        class="bg-primary text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-primary/90 transition-all">Mulai
-        Belanja</a>
-    </div>
-
-    <!-- PRODUCT GRID -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-6" id="wishlist-grid">
-
-      <!-- Item 1 -->
-      <div
-        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
-        <div class="relative h-48 bg-gray-100 overflow-hidden">
-          <img src="img/produk/Picture1.jpg"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <button onclick="removeFromWishlist(this)"
-            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10"
-            title="Hapus dari Wishlist">
-            <i class="fa-solid fa-heart"></i>
-          </button>
-        </div>
-        <div class="p-3">
-          <div class="text-[10px] text-gray-400 uppercase mb-1">Biji Kopi</div>
-          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Arabika Gayo Wine 200g
-          </h4>
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-primary">Rp 65.000</span>
-            <button
-              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-2 h-fit sticky top-24">
+      <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+        <div class="p-4 border-b border-gray-50 flex items-center gap-3">
+          <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+            class="w-10 h-10 rounded-full">
+          <div>
+            <h4 class="font-bold text-sm">Belva Mischah</h4>
+            <p class="text-xs text-gray-500">Member Gold</p>
           </div>
         </div>
+        <nav class="p-2">
+          <a href="profil.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-regular fa-user w-5 text-center"></i> Akun Saya
+          </a>
+          <a href="#"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-map-location-dot w-5 text-center"></i> Alamat
+          </a>
+          <a href="pembayaran-metode.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-credit-card w-5 text-center"></i> Pembayaran
+          </a>
+          <a href="notifikasi.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary rounded-lg transition-colors">
+            <i class="fa-solid fa-bell w-5 text-center"></i> Notifikasi
+          </a>
+          <a href="seduhan-wishlist.html"
+            class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-primary bg-primary/5 rounded-lg transition-colors">
+            <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+          </a>
+        </nav>
+      </div>
+      <div class="p-2">
+        <button
+          class="w-full flex items-center justify-center gap-2 border border-red-200 text-red-500 font-bold py-2.5 rounded-lg text-sm hover:bg-red-50 transition-colors bg-white"
+          onclick="location.href='register-login.html'">
+          <i class="fa-solid fa-right-from-bracket"></i> Keluar
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="flex-1 w-full lg:w-3/4 px-5 lg:px-0 py-8 lg:py-0">
+
+      <h1 class="text-2xl lg:text-3xl font-bold text-dark mb-8">Wishlist Saya <span
+          class="text-sm font-normal text-gray-500 ml-2" id="wishlist-count">(4 Item)</span></h1>
+
+      <!-- EMPTY STATE (Hidden by default) -->
+      <div id="empty-state" class="hidden flex flex-col items-center justify-center py-20 text-center">
+        <div class="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-gray-300">
+          <i class="fa-solid fa-heart-crack text-5xl"></i>
+        </div>
+        <h3 class="font-bold text-xl text-dark mb-2">Wishlist Masih Kosong</h3>
+        <p class="text-gray-500 mb-6">Yuk, cari produk favoritmu dan simpan di sini!</p>
+        <a href="index.html"
+          class="bg-primary text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-primary/90 transition-all">Mulai
+          Belanja</a>
       </div>
 
-      <!-- Item 2 -->
-      <div
-        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
-        <div class="relative h-48 bg-gray-100 overflow-hidden">
-          <img src="img/produk/Picture2.jpg"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <button onclick="removeFromWishlist(this)"
-            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
-            <i class="fa-solid fa-heart"></i>
-          </button>
-        </div>
-        <div class="p-3">
-          <div class="text-[10px] text-gray-400 uppercase mb-1">Alat Seduh</div>
-          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">V60 Dripper Ceramic Red
-            01</h4>
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-primary">Rp 85.000</span>
-            <button
-              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i class="fa-solid fa-cart-plus"></i>
+      <!-- PRODUCT GRID -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-6" id="wishlist-grid">
+
+        <!-- Item 1 -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+          <div class="relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture1.jpg"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <button onclick="removeFromWishlist(this)"
+              class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10"
+              title="Hapus dari Wishlist">
+              <i class="fa-solid fa-heart"></i>
             </button>
           </div>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div
-        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
-        <div class="relative h-48 bg-gray-100 overflow-hidden">
-          <img src="img/produk/Picture3.jpg"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <button onclick="removeFromWishlist(this)"
-            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
-            <i class="fa-solid fa-heart"></i>
-          </button>
-        </div>
-        <div class="p-3">
-          <div class="text-[10px] text-gray-400 uppercase mb-1">Snack</div>
-          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Croissant Almond Butter
-            Premium</h4>
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-primary">Rp 22.000</span>
-            <button
-              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
+          <div class="p-3">
+            <div class="text-[10px] text-gray-400 uppercase mb-1">Biji Kopi</div>
+            <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Arabika Gayo Wine 200g
+            </h4>
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-primary">Rp 65.000</span>
+              <button
+                class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Item 4 -->
-      <div
-        class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
-        <div class="relative h-48 bg-gray-100 overflow-hidden">
-          <img src="img/produk/Picture4.jpg"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <button onclick="removeFromWishlist(this)"
-            class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
-            <i class="fa-solid fa-heart"></i>
-          </button>
-        </div>
-        <div class="p-3">
-          <div class="text-[10px] text-gray-400 uppercase mb-1">Alat Seduh</div>
-          <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Vietnam Drip Stainless
-            Steel</h4>
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-primary">Rp 45.000</span>
-            <button
-              class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i class="fa-solid fa-cart-plus"></i>
+        <!-- Item 2 -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+          <div class="relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture2.jpg"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <button onclick="removeFromWishlist(this)"
+              class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
+              <i class="fa-solid fa-heart"></i>
             </button>
           </div>
+          <div class="p-3">
+            <div class="text-[10px] text-gray-400 uppercase mb-1">Alat Seduh</div>
+            <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">V60 Dripper Ceramic Red
+              01</h4>
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-primary">Rp 85.000</span>
+              <button
+                class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
-    </div>
+        <!-- Item 3 -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+          <div class="relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture3.jpg"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <button onclick="removeFromWishlist(this)"
+              class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3">
+            <div class="text-[10px] text-gray-400 uppercase mb-1">Snack</div>
+            <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Croissant Almond Butter
+              Premium</h4>
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-primary">Rp 22.000</span>
+              <button
+                class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 overflow-hidden group cursor-pointer relative shadow-sm hover:shadow-md transition-all wishlist-item">
+          <div class="relative h-48 bg-gray-100 overflow-hidden">
+            <img src="img/produk/Picture4.jpg"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <button onclick="removeFromWishlist(this)"
+              class="absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all shadow-sm z-10">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+          <div class="p-3">
+            <div class="text-[10px] text-gray-400 uppercase mb-1">Alat Seduh</div>
+            <h4 class="font-medium text-sm text-dark line-clamp-2 mb-2 group-hover:text-primary">Vietnam Drip Stainless
+              Steel</h4>
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-primary">Rp 45.000</span>
+              <button
+                class="w-8 h-8 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
   </main>
 
@@ -276,6 +322,9 @@
       }
     }
   </script>
+
+  </div>
+  </main>
 
 </body>
 
