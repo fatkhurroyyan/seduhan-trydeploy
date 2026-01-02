@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan V60 Untuk Pemula - Blog Seduhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { primary: '#6F4E37', secondary: '#D4A373', accent: '#E63946', background: '#FAFAF9', surface: '#FFFFFF', dark: '#2C2C2C' }, fontFamily: { sans: ['Nunito', 'sans-serif'], serif: ['Merriweather', 'serif'] } } }
+    }
+  </script>
+  <style>
+    /* Typography khusus artikel */
+    .article-body p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+    }
+
+    .article-body h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2C2C2C;
+    }
+
+    .article-body h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: #4a4a4a;
+    }
+
+    .article-body ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Merriweather', serif;
+      color: #4a4a4a;
+    }
+
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+
+    .article-body img {
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+      width: 100%;
+    }
+
+    .article-body blockquote {
+      border-left: 4px solid #6F4E37;
+      padding-left: 1rem;
+      font-style: italic;
+      color: #666;
+      margin: 2rem 0;
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  </style>
+</head>
+
+<body class="bg-background min-h-screen font-sans text-dark pb-24 lg:pb-0">
+
+  <!-- NAVBAR STICKY GLASSMORPHISM -->
+  <header id="navbar"
+    class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-3 lg:py-4">
+      <div class="flex items-center justify-between gap-4 lg:gap-8">
+
+        <!-- Logo & Text Seduhan -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group">
+          <img src="img/LOGO.svg" class="h-8 lg:h-12">
+          <!-- Tulisan Seduhan (Visible) -->
+          <img src="img/Seduhan.svg" class="hidden lg:flex">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-xl relative hidden md:block group">
+          <input type="text" placeholder="Cari seduhan favoritmu..."
+            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 group-hover:text-primary transition-colors"></i>
+        </div>
+
+        <!-- Mobile Search Icon (Placeholder) -->
+        <div class="md:hidden flex-1 flex justify-end pr-2">
+          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 lg:gap-5">
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-heart text-xl text-primary"></i>
+          </button>
+
+          <button class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
+            <i class="fa-solid fa-message text-xl text-primary"></i>
+          </button>
+
+          <a href="keranjang.html"><button
+              class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center hidden lg:flex justify-center transition-colors group">
+              <i class="fa-solid fa-cart-shopping text-xl text-primary group-hover:text-primary transition-colors"></i>
+              <span id="cart-count"
+                class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold scale-0 transition-transform duration-300">0</span>
+            </button></a>
+
+          <a href="notifikasi.html"><button
+              class="w-10 h-10 rounded-full hover:bg-gray-100 hidden lg:flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-bell text-xl text-primary"></i>
+            </button></a>
+
+
+          <div class="hidden lg:flex items-center gap-2 pl-4 border-l border-gray-200 cursor-pointer"
+            onclick="location.href='profil.html'">
+            <div class="text-right hidden xl:block">
+              <p class="text-xs font-bold text-dark">Belva Mischah</p>
+              <p class="text-[10px] text-gray-500">Member Gold</p>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Belva+Mischah&background=6F4E37&color=fff"
+              class="w-9 h-9 rounded-full ring-2 ring-white shadow-sm" alt="User">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 py-3">
+      <nav class="flex text-xs text-gray-500">
+        <ol class="inline-flex items-center space-x-1">
+          <li><a href="index.html" class="hover:text-primary hidden lg:flex">Beranda</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px] mx-1 hidden lg:flex"></i></li>
+          <li><a href="profil.html" class="hover:text-primary">Profil</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+          <li><a href="seduhan-blog.html" class="hover:text-primary">Blog</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
+          <li class="text-primary font-medium truncate max-w-[150px] lg:max-w-none">Panduan Lengkap V60</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-5 lg:px-10 py-8 lg:py-12 flex flex-col lg:flex-row gap-10">
+
+    <!-- MAIN ARTICLE CONTENT -->
+    <article class="w-full lg:w-2/3">
+
+      <!-- Article Header -->
+      <div class="mb-8">
+        <span
+          class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block tracking-wider">MANUAL
+          BREW</span>
+        <h1 class="text-2xl lg:text-4xl font-bold text-dark leading-tight mb-4">Panduan Lengkap V60 Untuk Pemula: Rasio,
+          Suhu, dan Teknik Tuang</h1>
+
+        <div class="flex items-center justify-between border-b border-gray-100 pb-6">
+          <div class="flex items-center gap-3">
+            <img src="https://ui-avatars.com/api/?name=Admin+Kreatif&background=6F4E37&color=fff"
+              class="w-10 h-10 rounded-full">
+            <div>
+              <p class="text-sm font-bold text-dark">Admin Kreatif</p>
+              <p class="text-xs text-gray-500">5 Januari 2026 • 5 Menit Baca</p>
+            </div>
+          </div>
+          <div class="flex gap-2 text-gray-400">
+            <button
+              class="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all"><i
+                class="fa-solid fa-share-nodes"></i></button>
+            <button
+              class="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"><i
+                class="fa-regular fa-bookmark"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Image -->
+      <div class="rounded-2xl overflow-hidden mb-8 shadow-sm">
+        <img src="img/produk/Picture4.jpg " alt="Alat Seduh V60" class="w-full h-60 lg:h-96 object-cover">
+        <p class="text-xs text-gray-400 mt-2 text-center italic">Foto: Unsplash / Nathan Dumlao</p>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-body">
+        <p
+          class="first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-3 first-letter:leading-none">
+          V60 adalah metode seduh manual yang paling populer di dunia saat ini. Alat berbentuk kerucut (V) dengan sudut
+          60 derajat ini diciptakan oleh Hario dari Jepang. Keunikannya terletak pada kejernihan rasa (clarity) dan
+          kemampuan menonjolkan karakter asli biji kopi.
+        </p>
+
+        <p>Bagi pemula, menyeduh dengan V60 mungkin terlihat mengintimidasi. Ada banyak variabel: suhu air, gilingan
+          kopi, hingga cara menuang. Tapi tenang, di artikel ini kita akan bedah satu per satu agar kamu bisa menyeduh
+          seenak kafe di rumah.</p>
+
+        <blockquote>
+          "Kunci dari manual brew bukan pada alat yang mahal, tapi pada konsistensi dan pemahaman terhadap biji kopi
+          yang kita seduh."
+        </blockquote>
+
+        <h2>Persiapan Alat dan Bahan</h2>
+        <p>Sebelum mulai, pastikan kamu punya alat "perang" berikut ini:</p>
+        <ul>
+          <li><strong>Dripper V60:</strong> Bisa bahan keramik, kaca, atau plastik.</li>
+          <li><strong>Paper Filter:</strong> Pastikan sesuai ukuran dripper (01 atau 02).</li>
+          <li><strong>Kettle Leher Angsa:</strong> Wajib, agar tuangan air stabil.</li>
+          <li><strong>Timbangan Digital:</strong> Agar rasio kopi dan air presisi.</li>
+          <li><strong>Biji Kopi Fresh:</strong> Gilingan medium (seperti garam laut kasar).</li>
+        </ul>
+
+        <h2>Resep Dasar (Rasio 1:15)</h2>
+        <p>Untuk pemula, saya sarankan menggunakan rasio 1:15. Artinya, untuk setiap 1 gram kopi, kita gunakan 15 ml
+          air. Jika pakai 15 gram kopi, airnya 225 ml.</p>
+
+        <h3>Langkah-langkah:</h3>
+        <p><strong>1. Blooming (00:00 - 00:45)</strong><br>
+          Tuang air panas (suhu 90-93°C) sebanyak 30-40ml. Basahi seluruh bubuk kopi. Biarkan gas CO2 keluar
+          (degassing). Ini fase krusial agar ekstraksi maksimal.</p>
+
+        <img src="img/produk/Picture6.jpg" alt="Proses Blooming " class="w-full h-60 lg:h-96 object-cover">
+
+        <p><strong>2. Tuangan Pertama (00:45 - 01:15)</strong><br>
+          Lanjutkan tuang air secara melingkar perlahan dari tengah ke luar (jangan kena kertas filter) hingga timbangan
+          menunjukkan 150ml.</p>
+
+        <p><strong>3. Tuangan Terakhir (01:15 - Selesai)</strong><br>
+          Tuang sisa air hingga total 225ml. Tunggu hingga air surut. Total waktu seduh idealnya antara 2 menit 30 detik
+          hingga 3 menit.</p>
+
+        <h2>Tips Tambahan</h2>
+        <p>Jika rasa kopi terlalu pahit, coba kasar-kan gilingan kopimu. Sebaliknya, jika terlalu asam dan encer,
+          haluskan gilingannya. Eksperimen adalah kunci!</p>
+
+        <p>Selamat mencoba menyeduh!</p>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mt-8 mb-10">
+        <a href="#" class="px-3 py-1 bg-gray-100 rounded text-xs text-gray-500 hover:bg-gray-200">#ManualBrew</a>
+        <a href="#" class="px-3 py-1 bg-gray-100 rounded text-xs text-gray-500 hover:bg-gray-200">#V60</a>
+        <a href="#" class="px-3 py-1 bg-gray-100 rounded text-xs text-gray-500 hover:bg-gray-200">#TipsKopi</a>
+        <a href="#" class="px-3 py-1 bg-gray-100 rounded text-xs text-gray-500 hover:bg-gray-200">#Hario</a>
+      </div>
+
+      <!-- Author Box -->
+      <div class="bg-white border border-gray-100 rounded-xl p-6 flex gap-4 items-center shadow-sm">
+        <img src="https://ui-avatars.com/api/?name=Admin+Kreatif&background=6F4E37&color=fff"
+          class="w-16 h-16 rounded-full border-2 border-primary/20">
+        <div>
+          <h4 class="font-bold text-dark text-lg">Admin Kreatif</h4>
+          <p class="text-xs text-gray-500 mb-2">Content Creator & Coffee Enthusiast</p>
+          <p class="text-sm text-gray-600">Mahasiswa Teknologi Rekayasa Multimedia yang hobi ngulik kopi di sela-sela
+            deadline tugas kuliah.</p>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="mt-12">
+        <h3 class="font-bold text-xl mb-6">Komentar (3)</h3>
+
+        <!-- Comment Form -->
+        <div class="flex gap-4 mb-8">
+          <div class="w-10 h-10 rounded-full bg-gray-200 shrink-0 overflow-hidden">
+            <img src="https://ui-avatars.com/api/?name=Guest&background=random" class="w-full h-full">
+          </div>
+          <div class="flex-1">
+            <textarea
+              class="w-full border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-primary transition-colors h-24 resize-none"
+              placeholder="Tulis komentar kamu..."></textarea>
+            <button
+              class="mt-2 bg-primary text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary/90">Kirim</button>
+          </div>
+        </div>
+
+        <!-- Comment List -->
+        <div class="space-y-6">
+          <!-- Comment 1 -->
+          <div class="flex gap-4">
+            <img src="https://ui-avatars.com/api/?name=Budi+P&background=random"
+              class="w-10 h-10 rounded-full shrink-0">
+            <div>
+              <div class="bg-gray-50 rounded-xl p-3 px-4 rounded-tl-none">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="font-bold text-sm text-dark">Budi Pekerti</span>
+                  <span class="text-[10px] text-gray-400">1 Jam lalu</span>
+                </div>
+                <p class="text-sm text-gray-600">Makasih tipsnya min! Selama ini nyeduh V60 rasanya pait terus, ternyata
+                  gilingannya kekecilan.</p>
+              </div>
+              <button class="text-xs text-gray-500 font-bold ml-2 mt-1 hover:text-primary">Balas</button>
+            </div>
+          </div>
+          <!-- Comment 2 -->
+          <div class="flex gap-4">
+            <img src="https://ui-avatars.com/api/?name=Siti+A&background=random"
+              class="w-10 h-10 rounded-full shrink-0">
+            <div>
+              <div class="bg-gray-50 rounded-xl p-3 px-4 rounded-tl-none">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="font-bold text-sm text-dark">Siti Aminah</span>
+                  <span class="text-[10px] text-gray-400">3 Jam lalu</span>
+                </div>
+                <p class="text-sm text-gray-600">Suhu airnya kalau gak punya termometer gimana ngukurnya kak?</p>
+              </div>
+              <button class="text-xs text-gray-500 font-bold ml-2 mt-1 hover:text-primary">Balas</button>
+
+              <!-- Reply -->
+              <div class="flex gap-4 mt-3 ml-2">
+                <img src="https://ui-avatars.com/api/?name=Admin+K&background=6F4E37&color=fff"
+                  class="w-8 h-8 rounded-full shrink-0">
+                <div>
+                  <div class="bg-primary/5 border border-primary/10 rounded-xl p-3 px-4 rounded-tl-none">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="font-bold text-sm text-primary">Admin Kreatif</span>
+                      <span class="bg-primary text-white text-[9px] px-1.5 rounded">Author</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Bisa didiamkan dulu sekitar 1-2 menit setelah air mendidih ya kak,
+                      biasanya suhunya akan turun ke range 90-93°C.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR (Related & Promo) -->
+    <aside class="w-full lg:w-1/3 space-y-8">
+
+      <!-- Promo Banner -->
+      <div class="bg-primary text-white rounded-2xl p-6 text-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+        <h3 class="text-xl font-bold mb-2 relative z-10">Promo V60 Starter Kit!</h3>
+        <p class="text-sm text-white/80 mb-4 relative z-10">Dapatkan diskon 20% untuk pembelian paket alat seduh V60
+          Hario.</p>
+        <button onclick="window.location.href='seduhan_product_detail.html'"
+          class="bg-white text-primary font-bold px-6 py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors relative z-10 shadow-lg">Beli
+          Sekarang</button>
+      </div>
+
+      <!-- Related Articles -->
+      <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+        <h3 class="font-bold text-lg mb-4 text-dark border-b border-gray-100 pb-2">Artikel Terkait</h3>
+        <div class="space-y-4">
+          <a href="#" class="flex gap-3 group">
+            <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+              <img src="img/produk/Picture5.jpg"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+            </div>
+            <div>
+              <span class="text-[10px] text-accent font-bold uppercase">Edukasi</span>
+              <h4 class="text-sm font-bold text-dark leading-snug group-hover:text-primary transition-colors">Perbedaan
+                Arabika & Robusta</h4>
+            </div>
+          </a>
+          <a href="#" class="flex gap-3 group">
+            <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+              <img src="img/produk/Picture6.jpg"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+            </div>
+            <div>
+              <span class="text-[10px] text-green-600 font-bold uppercase">Rekomendasi</span>
+              <h4 class="text-sm font-bold text-dark leading-snug group-hover:text-primary transition-colors">5 Alat
+                Kopi Terbaik di Bawah 500rb</h4>
+            </div>
+          </a>
+          <a href="#" class="flex gap-3 group">
+            <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+              <img src="img/produk/Picture3.jpg"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+            </div>
+            <div>
+              <span class="text-[10px] text-secondary font-bold uppercase">Resep</span>
+              <h4 class="text-sm font-bold text-dark leading-snug group-hover:text-primary transition-colors">Cara Bikin
+                Es Kopi Susu Gula Aren</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <i class="fa-regular fa-paper-plane text-2xl text-primary mb-3"></i>
+        <h3 class="font-bold text-dark">Langganan Newsletter</h3>
+        <p class="text-xs text-gray-500 mb-4">Dapatkan tips kopi dan promo eksklusif setiap minggunya.</p>
+        <div class="flex gap-2">
+          <input type="email" placeholder="Email kamu"
+            class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary">
+          <button
+            class="bg-dark text-white rounded-lg w-10 h-10 flex items-center justify-center hover:bg-primary transition-colors"><i
+              class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+
+
+</body>
+
+</html>

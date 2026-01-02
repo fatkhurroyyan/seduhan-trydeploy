@@ -89,7 +89,9 @@
     <div class="max-w-7xl mx-auto px-5 lg:px-10 py-3">
       <nav class="flex text-xs text-gray-500">
         <ol class="inline-flex items-center space-x-1">
-          <li><a href="index.html" class="hover:text-primary">Beranda</a></li>
+          <li><a href="index.html" class="hover:text-primary hidden lg:flex">Beranda</a></li>
+          <li><i class="fa-solid fa-chevron-right text-[10px] mx-1 hidden lg:flex"></i></li>
+          <li><a href="profil.html" class="hover:text-primary">Profil</a></li>
           <li><i class="fa-solid fa-chevron-right text-[10px] mx-1"></i></li>
           <li class="text-primary font-medium">Blog</li>
         </ol>
@@ -101,23 +103,12 @@
 
     <div class="flex items-center justify-between mb-8">
       <h1 class="text-2xl lg:text-3xl font-bold text-dark">Jurnal Kopi</h1>
-      <div class="flex gap-2 overflow-x-auto">
-        <button
-          class="px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold whitespace-nowrap">Semua</button>
-        <button
-          class="px-4 py-1.5 rounded-full bg-white border border-gray-200 text-gray-500 text-xs font-medium hover:border-primary hover:text-primary whitespace-nowrap">Tips
-          & Trik</button>
-        <button
-          class="px-4 py-1.5 rounded-full bg-white border border-gray-200 text-gray-500 text-xs font-medium hover:border-primary hover:text-primary whitespace-nowrap">Resep</button>
-        <button
-          class="px-4 py-1.5 rounded-full bg-white border border-gray-200 text-gray-500 text-xs font-medium hover:border-primary hover:text-primary whitespace-nowrap">Event</button>
-      </div>
     </div>
 
     <!-- FEATURED ARTICLE -->
-    <a href="seduhan_blog_read.html" class="block group mb-10">
+    <a href="seduhan-blog-read.html" class="block group mb-10">
       <div class="relative rounded-2xl overflow-hidden h-[250px] lg:h-[400px]">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+        <img src="img/produk/Picture4.jpg"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 lg:p-10">
@@ -205,16 +196,6 @@
 
   </main>
 
-  <!-- MOBILE NAV -->
-  <nav
-    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50">
-    <a href="seduhan.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary"><i
-        class="fa-solid fa-house text-xl"></i><span class="text-[10px]">Beranda</span></a>
-    <a href="seduhan_cart.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary"><i
-        class="fa-solid fa-bag-shopping text-xl"></i><span class="text-[10px]">Pesanan</span></a>
-    <a href="seduhan_profile.html" class="flex flex-col items-center gap-1 text-primary"><i
-        class="fa-regular fa-user text-xl font-bold"></i><span class="text-[10px] font-medium">Profil</span></a>
-  </nav>
 
 </body>
 
