@@ -26,11 +26,19 @@
   <!-- NAVBAR -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-5 lg:px-10 py-4 flex items-center gap-4">
-      <a href="index.html" class="text-dark hover:text-primary"><img src="img/LOGO.svg" class="h-10"></a>
+      <!-- Mobile: Back Button -->
+      <a href="index.html" class="lg:hidden text-dark hover:text-primary"><i
+          class="fa-solid fa-arrow-left text-xl"></i></a>
+
+      <!-- Desktop Logo -->
+      <a href="index.html" class="hidden lg:inline text-dark hover:text-primary"><img src="img/LOGO.svg"
+          class="h-10"></a>
+
       <!-- Logo Desktop -->
       <a href="index.html" class="hidden lg:flex items-center gap-2 text-primary font-bold text-xl"><img
           src="img/Seduhan.svg" alt=""></a>
 
+      <!-- Mobile & Desktop Title -->
       <h1 class="text-lg font-bold flex-1 lg:hidden">Notifikasi</h1>
 
       <!-- Desktop Search (Cosmetic) -->
