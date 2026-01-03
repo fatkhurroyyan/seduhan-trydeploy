@@ -24,11 +24,19 @@
     <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-3 lg:py-4">
       <div class="flex items-center justify-between gap-4 lg:gap-8">
 
-        <!-- Logo & Text Seduhan -->
-        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group">
-          <img src="img/LOGO.svg" class="h-8 lg:h-12">
-          <!-- Tulisan Seduhan (Visible) -->
-          <img src="img/Seduhan.svg" class="hidden lg:flex">
+        <!-- Logo & Text Seduhan (Desktop) / Back Button + Title (Mobile) -->
+        <div class="flex items-center gap-2 lg:gap-3 shrink-0 cursor-pointer group lg:flex">
+          <!-- Mobile: Back Button + Title -->
+          <div class="flex lg:hidden items-center gap-4 flex-1">
+            <a href="profil.html" class="text-primary hover:text-primary/80 transition-colors text-lg"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1 class="text-lg font-bold">Karir</h1>
+          </div>
+          <!-- Desktop: Logo -->
+          <div class="hidden lg:flex items-center gap-2 lg:gap-3">
+            <img src="img/LOGO.svg" class="h-8 lg:h-12">
+            <!-- Tulisan Seduhan (Visible) -->
+            <img src="img/Seduhan.svg" class="hidden lg:flex">
+          </div>
         </div>
 
         <!-- Search Bar -->
@@ -40,7 +48,7 @@
         </div>
 
         <!-- Mobile Search Icon (Placeholder) -->
-        <div class="md:hidden flex-1 flex justify-end pr-2">
+        <div class="md:hidden flex-1 flex justify-end pr-2 hidden">
           <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -49,12 +57,12 @@
         <!-- Actions -->
         <div class="flex items-center gap-3 lg:gap-5">
 
-          <a href="seduhan-wishlist.html"><button
+          <a href="seduhan-wishlist.html" class="hidden md:block"><button
               class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
               <i class="fa-solid fa-heart text-xl text-primary"></i>
             </button></a>
 
-          <a href="seduhan-chat.html"><button
+          <a href="seduhan-chat.html" class="hidden md:block"><button
               class="w-10 h-10 rounded-full hover:bg-gray-100 items-center justify-center transition-colors">
               <i class="fa-solid fa-message text-xl text-primary"></i>
             </button></a>
