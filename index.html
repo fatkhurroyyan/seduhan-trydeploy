@@ -192,15 +192,17 @@
 
         <!-- Search Bar -->
         <div class="flex-1 max-w-xl relative hidden md:block group">
-          <input type="text" placeholder="Cari seduhan favoritmu..."
-            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow">
+          <input type="text" id="searchInput" placeholder="Cari seduhan favoritmu..."
+            class="w-full bg-coffee-50 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 pl-11 pr-4 py-2.5 rounded-full text-sm transition-all shadow-inner group-hover:shadow-glow"
+            onkeyup="searchProducts()">
           <i
             class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 group-hover:text-primary transition-colors"></i>
         </div>
 
         <!-- Mobile Search Icon (Placeholder) -->
         <div class="md:hidden flex-1 flex justify-end pr-2">
-          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500">
+          <button class="w-10 h-10 rounded-full bg-coffee-50 flex items-center justify-center text-gray-500"
+            onclick="openMobileSearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -247,6 +249,20 @@
   </header>
 
   <main class="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-10 py-6 space-y-10 lg:space-y-14 mb-20 lg:mb-0">
+
+    <!-- MOBILE SEARCH MODAL -->
+    <div id="mobileSearchModal" class="hidden fixed inset-0 z-50 bg-black/50 md:hidden">
+      <div class="bg-white w-full rounded-b-3xl shadow-lg">
+        <div class="px-4 py-4 flex items-center gap-3">
+          <button onclick="closeMobileSearch()" class="text-dark hover:text-primary">
+            <i class="fa-solid fa-arrow-left text-xl"></i>
+          </button>
+          <input type="text" id="mobileSearchInput" placeholder="Cari seduhan favoritmu..."
+            class="flex-1 bg-gray-100 border-none focus:bg-white focus:ring-2 focus:ring-primary/20 px-4 py-2.5 rounded-full text-sm transition-all"
+            onkeyup="searchProducts()">
+        </div>
+      </div>
+    </div>
 
     <!-- HERO CAROUSEL -->
     <section
@@ -1875,6 +1891,55 @@
         icon.classList.add('fa-regular');
         icon.classList.remove('fa-solid', 'text-accent');
       }
+    }
+
+    // 4. SEARCH FUNCTION
+    function searchProducts() {
+      // Get search input from both desktop and mobile
+      const desktopInput = document.getElementById('searchInput');
+      const mobileInput = document.getElementById('mobileSearchInput');
+      const searchInput = (desktopInput && desktopInput.value ? desktopInput.value : mobileInput.value).toLowerCase();
+
+      const productCards = document.querySelectorAll('.product-card');
+      let foundCount = 0;
+
+      productCards.forEach(card => {
+        const productName = card.querySelector('h4').textContent.toLowerCase();
+        const productCategory = card.querySelector('.text-gray-400.uppercase').textContent.toLowerCase();
+
+        // Search in both product name and category
+        if (productName.includes(searchInput) || productCategory.includes(searchInput)) {
+          card.style.display = 'block';
+          foundCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Optional: Show "no results" message
+      console.log(foundCount === 0 ? 'Produk tidak ditemukan' : `Ditemukan ${foundCount} produk`);
+    }
+
+    // 5. MOBILE SEARCH MODAL FUNCTIONS
+    function openMobileSearch() {
+      const modal = document.getElementById('mobileSearchModal');
+      modal.classList.remove('hidden');
+      // Focus input
+      setTimeout(() => {
+        document.getElementById('mobileSearchInput').focus();
+      }, 100);
+    }
+
+    function closeMobileSearch() {
+      const modal = document.getElementById('mobileSearchModal');
+      const input = document.getElementById('mobileSearchInput');
+      modal.classList.add('hidden');
+      input.value = '';
+
+      // Reset semua produk tampil
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.style.display = 'block';
+      });
     }
   </script>
 </body>
