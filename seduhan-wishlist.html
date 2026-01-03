@@ -213,10 +213,11 @@
               <i class="fa-solid fa-heart"></i>
             </button>
           </div>
-          <div class="p-3 flex flex-col flex-1" onclick="location.href='detail-produk1.html'">
+          <div class="p-3 flex flex-col flex-1">
             <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
             <h4
-              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
+              class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10"
+              onclick="location.href='detail-produk1.html'">
               Bubuk Kopi Arunika</h4>
 
             <!-- Harga & Coret -->
@@ -254,7 +255,7 @@
               <i class="fa-solid fa-heart"></i>
             </button>
           </div>
-          <div class="p-3 flex flex-col flex-1" onclick="location.href='detail-produk1.html'">
+          <div class="p-3 flex flex-col flex-1">
             <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
             <h4
               class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
@@ -297,7 +298,7 @@
               <i class="fa-solid fa-heart"></i>
             </button>
           </div>
-          <div class="p-3 flex flex-col flex-1" onclick="location.href='detail-produk1.html'">
+          <div class="p-3 flex flex-col flex-1">
             <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
             <h4
               class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
@@ -337,7 +338,7 @@
               <i class="fa-solid fa-heart"></i>
             </button>
           </div>
-          <div class="p-3 flex flex-col flex-1" onclick="location.href='detail-produk1.html'">
+          <div class="p-3 flex flex-col flex-1">
             <div class="text-[10px] text-gray-400 mb-1 uppercase tracking-wider">Kopi</div>
             <h4
               class="font-medium text-dark text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary transition-colors h-10">
@@ -372,7 +373,20 @@
 
 
 
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast"
+    class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-dark/90 backdrop-blur text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-[-20px] pointer-events-none z-[100]">
+    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center"><i
+        class="fa-solid fa-check text-xs"></i></div>
+    <span class="font-medium text-sm">Produk masuk keranjang!</span>
+  </div>
+
   <script>
+    // CART COUNTER
+    let cartCounter = 0;
+    const cartBadge = document.getElementById('cart-count');
+    const toast = document.getElementById('toast');
+
     function removeFromWishlist(btn) {
       const item = btn.closest('.wishlist-item');
 
@@ -400,6 +414,20 @@
         grid.classList.add('hidden');
         emptyState.classList.remove('hidden');
       }
+    }
+
+    function addToCart() {
+      cartCounter++;
+      cartBadge.innerText = cartCounter;
+      cartBadge.classList.remove('scale-0');
+
+      cartBadge.classList.add('scale-125');
+      setTimeout(() => cartBadge.classList.remove('scale-125'), 150);
+
+      toast.classList.remove('opacity-0', 'translate-y-[-20px]');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-[-20px]');
+      }, 2000);
     }
   </script>
 
