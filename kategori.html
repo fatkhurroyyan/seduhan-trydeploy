@@ -1169,6 +1169,16 @@
 
   <!-- JAVASCRIPT FILTER LOGIC -->
   <script>
+    // Get category from URL parameter on page load
+    window.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const selectedCategory = urlParams.get('cat');
+
+      if (selectedCategory) {
+        filterCategory(selectedCategory);
+      }
+    });
+
     function filterCategory(category) {
       // 1. Ambil semua item produk
       const items = document.querySelectorAll('.product-item');
