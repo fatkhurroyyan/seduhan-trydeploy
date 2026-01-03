@@ -143,17 +143,17 @@
           <!-- LOGIN FORM                                 -->
           <!-- ========================================== -->
           <form id="form-login" onsubmit="handleLogin(event)" class="block fade-in">
-            <!-- Phone Input -->
+            <!-- Phone/Email Input -->
             <div class="relative mb-2">
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <i data-lucide="phone" class="h-5 w-5 text-coffee-400"></i>
+                <i data-lucide="mail" class="h-5 w-5 text-coffee-400"></i>
               </div>
-              <!-- Added sanitizePhone to oninput -->
-              <input type="text" id="login-phone" placeholder="Nomor Telepon (Contoh: 0812...)"
+              <input type="text" id="login-credential" placeholder="Email atau Nomor HP"
                 class="w-full pl-12 pr-4 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm transition-all"
-                oninput="sanitizePhone(this, 'error-login-phone'); validateLoginForm()">
+                oninput="validateLoginForm()">
             </div>
-            <p id="error-login-phone" class="text-red-500 text-xs mb-3 hidden ml-1">Nomor tidak valid</p>
+            <p id="error-login-credential" class="text-red-500 text-xs mb-3 hidden ml-1">Email atau nomor tidak valid
+            </p>
 
             <!-- Password Input -->
             <div class="relative mb-2">
@@ -168,7 +168,7 @@
                 <i id="login-eye" data-lucide="eye" class="h-5 w-5"></i>
               </button>
             </div>
-            <p id="error-login-pass" class="text-red-500 text-xs mb-4 hidden ml-1">Password salah</p>
+            <p id="error-login-pass" class="text-red-500 text-xs mb-4 hidden ml-1">Email/nomor atau password salah</p>
 
             <!-- Forgot & Remember -->
             <div class="flex items-center justify-between mb-6 text-xs md:text-sm">
@@ -272,6 +272,22 @@
               <p id="password-feedback" class="text-[10px] text-gray-400 text-right">Minimal 8 karakter</p>
             </div>
 
+            <!-- Confirm Password -->
+            <div class="relative mb-1">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="lock" class="h-5 w-5 text-coffee-400"></i>
+              </div>
+              <input type="password" id="reg-pass-confirm" placeholder="Konfirmasi Password"
+                class="w-full pl-12 pr-12 py-3.5 bg-white border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:ring-1 focus:ring-coffee-75 focus:outline-none shadow-sm text-sm"
+                oninput="validateRegisterForm()">
+
+              <button type="button" onclick="togglePassword('reg-pass-confirm', 'reg-confirm-eye')"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-coffee-400 cursor-pointer z-20">
+                <i id="reg-confirm-eye" data-lucide="eye" class="h-5 w-5"></i>
+              </button>
+            </div>
+            <p id="error-reg-pass-confirm" class="text-red-500 text-[10px] mb-2 hidden ml-1">Password tidak cocok</p>
+
             <button type="submit" id="btn-register" disabled
               class="btn-disabled w-full mt-2 bg-coffee-300 text-white font-bold py-3.5 rounded-xl shadow-lg hover:bg-coffee-400 transition transform mb-6">
               Daftar Sekarang
@@ -352,39 +368,9 @@
         input.classList.remove('input-error');
       });
       document.querySelectorAll('p[id^="error-"]').forEach(p => p.classList.add('hidden'));
+      document.getElementById('password-strength-container').classList.add('hidden');
       validateLoginForm();
       validateRegisterForm();
-    }
-
-    // --- INPUT SANITIZATION (NUMBERS ONLY) ---
-    function sanitizePhone(input, errorId) {
-      const originalValue = input.value;
-      // Hanya izinkan angka (0-9)
-      const cleanValue = originalValue.replace(/[^0-9]/g, '');
-
-      if (originalValue !== cleanValue) {
-        input.value = cleanValue;
-
-        // Tampilkan peringatan sementara
-        const errorEl = document.getElementById(errorId);
-        if (errorEl) {
-          errorEl.innerText = "Hanya boleh angka";
-          errorEl.classList.remove('hidden');
-          errorEl.classList.add('text-orange-500'); // Warna warning (orange)
-          errorEl.classList.remove('text-red-500'); // Hapus warna error (merah)
-
-          // Hapus peringatan setelah 1.5 detik
-          setTimeout(() => {
-            // Cek apakah pesan masih "Hanya boleh angka", kalau ya baru di hide
-            // Ini untuk mencegah kita meng-hide pesan error validasi (seperti "Nomor tidak terdaftar")
-            if (errorEl.innerText === "Hanya boleh angka") {
-              errorEl.classList.add('hidden');
-              errorEl.classList.remove('text-orange-500');
-              errorEl.classList.add('text-red-500'); // Reset ke default error color
-            }
-          }, 1500);
-        }
-      }
     }
 
     // --- PASSWORD VISIBILITY TOGGLE ---
@@ -409,12 +395,12 @@
 
     // --- FORM VALIDATION: LOGIN ---
     function validateLoginForm() {
-      const phone = document.getElementById('login-phone').value;
+      const credential = document.getElementById('login-credential').value;
       const pass = document.getElementById('login-pass').value;
       const btn = document.getElementById('btn-login');
 
       // Simple logic: Enable if both fields have content
-      if (phone.length > 3 && pass.length > 0) {
+      if (credential.length > 3 && pass.length > 0) {
         btn.disabled = false;
         btn.classList.remove('btn-disabled');
       } else {
@@ -429,17 +415,28 @@
       const email = document.getElementById('reg-email').value;
       const phone = document.getElementById('reg-phone').value;
       const pass = document.getElementById('reg-pass').value;
+      const passConfirm = document.getElementById('reg-pass-confirm').value;
       const btn = document.getElementById('btn-register');
+      const passConfirmError = document.getElementById('error-reg-pass-confirm');
 
       // Regex for simple validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const isEmailValid = emailRegex.test(email);
       const isPhoneValid = phone.length >= 10 && /^\d+$/.test(phone);
 
+      // Check password match
+      const isPasswordMatch = pass === passConfirm && pass.length > 0;
+
+      if (!isPasswordMatch && passConfirm.length > 0) {
+        passConfirmError.classList.remove('hidden');
+      } else {
+        passConfirmError.classList.add('hidden');
+      }
+
       // Determine password strength (must be at least Medium)
       const isPassStrong = checkPasswordStrength() >= 2;
 
-      if (name.length > 2 && isEmailValid && isPhoneValid && isPassStrong) {
+      if (name.length > 2 && isEmailValid && isPhoneValid && isPassStrong && isPasswordMatch) {
         btn.disabled = false;
         btn.classList.remove('btn-disabled');
       } else {
@@ -500,15 +497,15 @@
     // --- HANDLE LOGIN SUBMIT ---
     function handleLogin(e) {
       e.preventDefault();
-      const phoneInput = document.getElementById('login-phone');
+      const credentialInput = document.getElementById('login-credential');
       const passInput = document.getElementById('login-pass');
-      const phoneError = document.getElementById('error-login-phone');
+      const credentialError = document.getElementById('error-login-credential');
       const passError = document.getElementById('error-login-pass');
 
       // Reset previous errors
-      phoneInput.classList.remove('input-error');
+      credentialInput.classList.remove('input-error');
       passInput.classList.remove('input-error');
-      phoneError.classList.add('hidden');
+      credentialError.classList.add('hidden');
       passError.classList.add('hidden');
 
       // Simulate API loading
@@ -519,20 +516,23 @@
       btn.disabled = true;
 
       setTimeout(() => {
-        // Check Database
-        const user = MOCK_DB.find(u => u.phone === phoneInput.value);
+        // Check if credential is email or phone
+        const isEmail = credentialInput.value.includes('@');
+
+        // Check Database (match email OR phone)
+        const user = MOCK_DB.find(u =>
+          isEmail ? u.email === credentialInput.value : u.phone === credentialInput.value
+        );
 
         if (!user) {
           // User not found
-          phoneInput.classList.add('input-error');
-          phoneError.innerText = "Nomor Handphone belum terdaftar.";
-          phoneError.classList.remove('hidden');
-          phoneError.classList.remove('text-orange-500');
-          phoneError.classList.add('text-red-500'); // Ensure it's red for error
+          credentialInput.classList.add('input-error');
+          credentialError.innerText = "Email atau nomor HP tidak terdaftar.";
+          credentialError.classList.remove('hidden');
           Swal.fire({
             icon: 'error',
             title: 'Login Gagal',
-            text: 'Nomor HP tidak ditemukan. Silakan daftar terlebih dahulu.',
+            text: 'Email atau nomor HP tidak ditemukan. Silakan daftar terlebih dahulu.',
             confirmButtonColor: '#8A6240'
           });
         } else if (user.password !== passInput.value) {
@@ -568,19 +568,34 @@
     // --- HANDLE REGISTER SUBMIT ---
     function handleRegister(e) {
       e.preventDefault();
-      const phoneInput = document.getElementById('reg-phone');
+      const nameInput = document.getElementById('reg-name');
       const emailInput = document.getElementById('reg-email');
+      const phoneInput = document.getElementById('reg-phone');
+      const passInput = document.getElementById('reg-pass');
       const phoneError = document.getElementById('error-reg-phone');
+      const emailError = document.getElementById('error-reg-email');
+
+      // Check if email already exists
+      const emailExists = MOCK_DB.some(u => u.email === emailInput.value);
+      if (emailExists) {
+        emailInput.classList.add('input-error');
+        emailError.innerText = "Email ini sudah terdaftar!";
+        emailError.classList.remove('hidden');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Sudah Terdaftar',
+          text: 'Email ini sudah digunakan. Silakan login.',
+          confirmButtonColor: '#8A6240'
+        });
+        return;
+      }
 
       // Check if phone already exists
-      const exists = MOCK_DB.some(u => u.phone === phoneInput.value);
-
-      if (exists) {
+      const phoneExists = MOCK_DB.some(u => u.phone === phoneInput.value);
+      if (phoneExists) {
         phoneInput.classList.add('input-error');
         phoneError.innerText = "Nomor ini sudah terdaftar!";
         phoneError.classList.remove('hidden');
-        phoneError.classList.remove('text-orange-500');
-        phoneError.classList.add('text-red-500');
         Swal.fire({
           icon: 'warning',
           title: 'Sudah Terdaftar',
@@ -589,6 +604,14 @@
         });
         return;
       }
+
+      // Add new user to database
+      MOCK_DB.push({
+        name: nameInput.value,
+        email: emailInput.value,
+        phone: phoneInput.value,
+        password: passInput.value
+      });
 
       // Success Register
       Swal.fire({
@@ -599,7 +622,7 @@
       }).then(() => {
         switchTab('login');
         // Populate login field automatically for better UX
-        document.getElementById('login-phone').value = phoneInput.value;
+        document.getElementById('login-credential').value = emailInput.value;
         validateLoginForm(); // Re-check button state
       });
     }
