@@ -110,7 +110,7 @@
     </div>
 
     <!-- RIGHT: SUMMARY (Sticky on Desktop) -->
-    <div class="lg:w-96 shrink-0">
+    <div class="hidden lg:block lg:w-96 shrink-0">
       <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm sticky top-24">
         <h3 class="font-bold mb-4 text-lg">Ringkasan Belanja</h3>
 
@@ -144,7 +144,7 @@
 
   <!-- MOBILE BOTTOM CHECKOUT BAR -->
   <div
-    class="lg:hidden fixed bottom-[60px] left-0 right-0 bg-white border-t border-gray-200 p-4 pt-1 flex justify-between items-center z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] h-24">
+    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 pt-1 flex justify-between items-center z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] h-24">
     <div class="flex flex-col">
       <span class="text-xs text-gray-500">Total Tagihan</span>
       <span class="font-bold text-lg text-primary">Rp 109.000</span>
@@ -153,35 +153,7 @@
       onclick="location.href='checkout.html'">Checkout (3)</button>
   </div>
 
-  <!-- MOBILE NAV -->
-  <nav
-    class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 px-6 py-3 flex justify-between items-center z-50 pb-safe shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)]">
-    <a href="index.html" class="flex flex-col items-center gap-1 text-primary group">
-      <i class="fa-solid fa-house text-xl group-hover:-translate-y-1 transition-transform"></i>
-      <span class="text-[10px] font-medium">Beranda</span>
-    </a>
-    <a href="kategori.html"
-      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
-      <i class="fa-regular fa-clone text-xl group-hover:-translate-y-1 transition-transform"></i>
-      <span class="text-[10px] font-medium">Kategori</span>
-    </a>
-    <div class="relative -top-8 group">
-      <a href="keranjang.html"><button
-          class="w-14 h-14 rounded-full bg-background text-white shadow-glow flex items-center justify-center text-xl border-4 border-primary transform hover:scale-110 active:scale-95 transition-all">
-          <i class="fa-solid fa-cart-shopping text-primary"></i>
-        </button></a>
-    </div>
-    <a href="notifikasi.html"
-      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
-      <i class="fa-regular fa-bell text-xl group-hover:-translate-y-1 transition-transform"></i>
-      <span class="text-[10px] font-medium">Notifikasi</span>
-    </a>
-    <a href="profil.html"
-      class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors group">
-      <i class="fa-regular fa-user text-xl group-hover:-translate-y-1 transition-transform"></i>
-      <span class="text-[10px] font-medium">Profil</span>
-    </a>
-  </nav>
+
 
 </body>
 
